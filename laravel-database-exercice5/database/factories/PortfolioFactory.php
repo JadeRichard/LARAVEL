@@ -18,9 +18,10 @@ class PortfolioFactory extends Factory
     public function definition()
     {
         return [
-            'nom' => $this->faker->word(),
-            'description' => $this->faker->text(),
-            'image' => $this->faker->word(),
+            'nom' => "nom 1",
+            'description' => "description 1",
+            'image' => "image 1",
+            "timestamps" => now(),
         ];
     }
 }
