@@ -17,39 +17,48 @@ class PortfolioSeeder extends Seeder
     {
         DB::table('portfolios')->insert([
             "image"=>"img/portfolio/portfolio-1.jpg",
-            "filter"=>"App 1",
+            "title"=>"App 1",
+            "filter"=>"app"
         ]);
         DB::table('portfolios')->insert([
             "image"=>"img/portfolio/portfolio-2.jpg",
-            "filter"=>"Web 3",
+            "title"=>"Web 3",
+            "filter"=>"web"
         ]);
         DB::table('portfolios')->insert([
             "image"=>"img/portfolio/portfolio-3.jpg",
-            "filter"=>"App 2",
+            "title"=>"App 2",
+            "filter"=>"app"
         ]);
         DB::table('portfolios')->insert([
             "image"=>"img/portfolio/portfolio-4.jpg",
-            "filter"=>"Card 2",
+            "title"=>"Card 2",
+            "filter"=>"card"
         ]);
         DB::table('portfolios')->insert([
             "image"=>"img/portfolio/portfolio-5.jpg",
-            "filter"=>"Web 2",
+            "title"=>"Web 2",
+            "filter"=>"web"
         ]);
         DB::table('portfolios')->insert([
             "image"=>"img/portfolio/portfolio-6.jpg",
-            "filter"=>"App 3",
+            "title"=>"App 3",
+            "filter"=>"app"
         ]);
         DB::table('portfolios')->insert([
             "image"=>"img/portfolio/portfolio-7.jpg",
-            "filter"=>"Card 1",
+            "title"=>"Card 1",
+            "filter"=>"card"
         ]);
         DB::table('portfolios')->insert([
             "image"=>"img/portfolio/portfolio-8.jpg",
-            "filter"=>"Card 3",
+            "title"=>"Card 3",
+            "filter"=>"card"
         ]);
         DB::table('portfolios')->insert([
             "image"=>"img/portfolio/portfolio-9.jpg",
-            "filter"=>"Web 3",
+            "title"=>"Web 3",
+            "filter"=>"web"
         ]);
     }
 }

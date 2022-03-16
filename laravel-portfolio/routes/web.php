@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\FactController;
+use App\Http\Controllers\NavlinkController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\TitleController;
 use App\Models\About;
 use App\Models\Fact;
 use App\Models\Navlink;
@@ -30,3 +37,15 @@ Route::get('/', function () {
     $title = Title::all();
     return view('welcome', compact("about", "fact", "navlink", "portfolio", "skill", "testimonial", "title"));
 });
+
+Route::get('/backoffice', function () {
+    return view('back.backoffice');
+});
+
+Route::get('back/abouts/all', [AboutController::class,'index'])->name('back.abouts.all');
+Route::get('back/facts/all', [FactController::class,'index'])->name('back.facts.all');
+Route::get('back/navlinks/all', [NavlinkController::class,'index'])->name('back.navlinks.all');
+Route::get('back/portfolios/all', [PortfolioController::class,'index'])->name('back.portfolios.all');
+Route::get('back/skills/all', [SkillController::class,'index'])->name('back.skills.all');
+Route::get('back/testimonials/all', [TestimonialController::class,'index'])->name('back.testimonials.all');
+Route::get('back/titles/all', [TitleController::class,'index'])->name('back.titles.all');

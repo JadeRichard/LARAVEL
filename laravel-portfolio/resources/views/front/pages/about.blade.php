@@ -3,8 +3,8 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>About</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <h2>{{ $title[0]->title }}</h2>
+        <p>{{ $title[0]->subtitle }}</p>
       </div>
 
       <div class="row">
@@ -18,25 +18,20 @@
             magna aliqua.
           </p>
           <div class="row">
-            {{-- <div class="col-lg-6">
+            <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
+                @for ($i = 0; $i < 4; $i++)
+                <li><i class="{{ $about[$i]->icon }}"></i> <strong>{{ $about[$i]->info }}</strong> <span>{{ $about[$i]->text }}</span></li>
+                @endfor
               </ul>
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong> <span>email@example.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                @for ($i = 4; $i < 8; $i++)
+                <li><i class="{{ $about[$i]->icon }}"></i> <strong>{{ $about[$i]->info }}</strong> <span>{{ $about[$i]->text }}</span></li>
+                @endfor
               </ul>
-            </div> --}}
-            @foreach ($about as $item)
-              <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-            @endforeach
+            </div>
           </div>
           <p>
             Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.

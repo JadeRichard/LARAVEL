@@ -16,36 +16,36 @@ class AboutSeeder extends Seeder
     public function run()
     {
         DB::table('abouts')->insert([
-            "info"=>"Birthday",
+            "info"=>"Birthday : ",
             "text"=>"1 May 1995",
         ]);
 
         DB::table('abouts')->insert([
-            "info"=>"Website",
+            "info"=>"Website : ",
             "text"=>"www.example.com",
         ]);
         DB::table('abouts')->insert([
-            "info"=>"Phone",
+            "info"=>"Phone : ",
             "text"=>"+123 456 7890",
         ]);
         DB::table('abouts')->insert([
-            "info"=>"Age",
+            "info"=>"Age : ",
             "text"=>"30",
         ]);
         DB::table('abouts')->insert([
-            "info"=>"Degree",
+            "info"=>"Degree : ",
             "text"=>"Master",
         ]);
         DB::table('abouts')->insert([
-            "info"=>"Email",
+            "info"=>"Email : ",
             "text"=>"email@example.com",
         ]);
         DB::table('abouts')->insert([
-            "info"=>"City",
+            "info"=>"City : ",
             "text"=>"New York",
         ]);
         DB::table('abouts')->insert([
-            "info"=>"Freelance",
+            "info"=>"Freelance : ",
             "text"=>"Available",
         ]);
     }

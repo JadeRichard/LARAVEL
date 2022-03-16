@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset("css/style.css") }}" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: iPortfolio - v3.7.0
@@ -37,7 +38,15 @@
 
 <body>
 
-    @yield('content')
+  @yield('content')
+  @yield('backoffice')
+  @yield('facts.all')
+  @yield('abouts.all')
+  @yield('navlinks.all')
+  @yield('portfolios.all')
+  @yield('skills.all')
+  @yield('testimonials.all')
+  @yield('titles.all')
 
     <!-- Vendor JS Files -->
   <script src='{{ asset("vendor/purecounter/purecounter.js") }}'></script>
