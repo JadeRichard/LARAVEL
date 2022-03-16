@@ -27,6 +27,7 @@ Route::get('back/users/edit/{id}', [UserController::class, "edit"])->name("back.
 Route::post('back/users/update/{id}', [UserController::class, "update"])->name("back.users.update");
 Route::get('back/usercreate', [UserController::class, "create"])->name("back.users.create");
 Route::post('back/userstore', [UserController::class, "store"])->name("back.users.store");
+Route::get('back/users/read/{id}', [UserController::class, "read"])->name("back.users.read");
 
 Route::get('back/cars/all', [CarController::class,'index'])->name('back.cars.all');
 Route::post('back/cars/{id}/delete', [CarController::class, "destroy"])->name('back.cars.destroy');
@@ -34,6 +35,7 @@ Route::get('back/cars/edit/{id}', [CarController::class, "edit"])->name("back.ca
 Route::post('back/cars/update/{id}', [CarController::class, "update"])->name("back.cars.update");
 Route::get('back/carcreate', [CarController::class, "create"])->name("back.cars.create");
 Route::post('back/carstore', [CarController::class, "store"])->name("back.cars.store");
+Route::get('back/cars/read/{id}', [CarController::class, "read"])->name("back.cars.read");
 
 Route::get('back/teams/all', [TeamController::class,'index'])->name('back.teams.all');
 Route::post('back/teams/{id}/delete', [TeamController::class, "destroy"])->name('back.teams.destroy');
@@ -41,6 +43,7 @@ Route::get('back/teams/edit/{id}', [TeamController::class, "edit"])->name("back.
 Route::post('back/teams/update/{id}', [TeamController::class, "update"])->name("back.teams.update");
 Route::get('back/teamcreate', [TeamController::class, "create"])->name("back.teams.create");
 Route::post('back/teamstore', [TeamController::class, "store"])->name("back.teams.store");
+Route::get('back/teams/read/{id}', [TeamController::class, "read"])->name("back.teams.read");
 
 Route::get('back/articles/all', [ArticleController::class,'index'])->name('back.articles.all');
 Route::post('back/articles/{id}/delete', [ArticleController::class, "destroy"])->name('back.articles.destroy');
@@ -48,3 +51,4 @@ Route::get('back/articles/edit/{id}', [ArticleController::class, "edit"])->name(
 Route::post('back/articles/update/{id}', [ArticleController::class, "update"])->name("back.articles.update");
 Route::get('back/articlecreate', [ArticleController::class, "create"])->name("back.articles.create");
 Route::post('back/articlestore', [ArticleController::class, "store"])->name("back.articles.store");
+Route::get('back/articles/read/{id}', [ArticleController::class, "read"])->name("back.articles.read");

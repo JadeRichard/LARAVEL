@@ -35,6 +35,9 @@
                 <td>
                     <a href="{{ route("back.articles.edit", $item->id) }}" class="btn btn-success" >Edit</a>
                 </td>
+                <td>
+                    <a href="{{ route("back.articles.read", $item->id) }}" class="btn btn-warning" >Read</a>
+                </td>
             </tr>
         @endforeach
     </tbody>

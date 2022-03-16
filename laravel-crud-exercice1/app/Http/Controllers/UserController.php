@@ -40,6 +40,11 @@ class UserController extends Controller
         return view("back.users.create");
     }
 
+    public function read($lid){
+        $user = User::find($lid);
+        return view("back.users.read", compact('user'));
+    }
+
     public function store(Request $request){
         $user = new User;
         $validated = $request->validate([

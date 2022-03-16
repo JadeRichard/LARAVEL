@@ -54,4 +54,9 @@ class ArticleController extends Controller
         $article->save();
         return redirect()->route("back.articles.all")->with('message', 'Element created');
     }
+
+    public function read($lid){
+        $article = Article::find($lid);
+        return view("back.articles.read", compact('article'));
+    }
 }

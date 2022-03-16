@@ -38,6 +38,11 @@ class TeamController extends Controller
         return view("back.teams.create");
     }
 
+    public function read($lid){
+        $team = Team::find($lid);
+        return view("back.teams.read", compact('team'));
+    }
+
     public function store(Request $request){
         $team = new Team;
         $validated = $request->validate([

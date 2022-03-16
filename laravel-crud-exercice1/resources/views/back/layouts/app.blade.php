@@ -15,12 +15,16 @@
   @yield('content')
   @yield('users.create')
   @yield('users.edit')
+  @yield('users.read')
   @yield('cars.create')
   @yield('cars.edit')
+  @yield('cars.read')
   @yield('teams.create')
   @yield('teams.edit')
+  @yield('teams.read')
   @yield('articles.create')
   @yield('articles.edit')
+  @yield('articles.read')
 
 
     

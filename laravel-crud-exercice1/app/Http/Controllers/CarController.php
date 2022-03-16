@@ -39,6 +39,11 @@ class CarController extends Controller
         return view("back.cars.create");
     }
 
+    public function read($lid){
+        $car = Car::find($lid);
+        return view("back.cars.read", compact('car'));
+    }
+
     public function store(Request $request){
         $car = new Car;
         $validated = $request->validate([
