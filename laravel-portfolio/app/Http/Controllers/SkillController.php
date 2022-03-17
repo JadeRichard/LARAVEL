@@ -33,8 +33,13 @@ class SkillController extends Controller
 
     public function destroy($id){
         $skill = Skill::find($id);
-        $skill->delete();
-        return redirect()->back()->with('message', 'Element destroyed');
+        $skillarr = Skill::all();
+        if (count($skillarr) > 1) {
+            $skill->delete();
+            return redirect()->back()->with('message', 'Element destroyed');
+        } else {      
+            return redirect()->back()->with('message', 'Cannot delete all elements');
+        }
     }
 
     public function create(){

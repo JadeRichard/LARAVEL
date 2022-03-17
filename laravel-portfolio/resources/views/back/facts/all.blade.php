@@ -12,9 +12,11 @@
             </div>
         @endif
 
-        {{-- @if ($fact >= 4)
+        {{-- @if (count($fact) > 4 )
         <div class="alert alert-danger">
-            <div>aaaaaa</div>
+            <div class="mx-5">
+                Can't create more that four elements
+            </div>
         </div>
         @endif --}}
 

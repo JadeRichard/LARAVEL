@@ -35,8 +35,14 @@ class TestimonialController extends Controller
 
     public function destroy($id){
         $testimonial = Testimonial::find($id);
-        $testimonial->delete();
-        return redirect()->back()->with('message', 'Element destroyed');
+        $testimonialarr = Testimonial::all();
+        
+        if (count($testimonialarr) > 1) {
+            $testimonial->delete();
+            return redirect()->back()->with('message', 'Element destroyed');
+        } else {      
+            return redirect()->back()->with('message', 'Cannot delete all elements');
+        }
     }
 
     public function create(){

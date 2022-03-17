@@ -34,15 +34,28 @@ class FactController extends Controller
     }
 
     public function destroy($id){
+       
         $fact = Fact::find($id);
-        $fact->delete();
-        return redirect()->back()->with('message', 'Element destroyed');
+        $factarr = Fact::all();
+        if (count($factarr) > 1) {
+            $fact->delete();
+            return redirect()->back()->with('message', 'Element destroyed');
+        } else {      
+            return redirect()->back()->with('message', 'Cannot delete all elements');
+        }
     }
 
     public function create(){
         
         $fact = Fact::all();
-        return view("back.facts.create", compact("fact"));
+
+        if (count($fact) >= 4) {
+            return redirect()->back()->with('message', 'Cannot create more than four elements');
+        } else {
+            return view("back.facts.create", compact("fact"));
+        }
+        
+        
     }
 
     public function store(Request $request){

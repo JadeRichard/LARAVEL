@@ -1,6 +1,8 @@
 @extends('back.layouts.app')
 
 @section('facts.create')
+
+<div class="container">
     <h1>Create</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -26,5 +28,7 @@
         <input type="text" name="text">
         <button type="submit" class="btn btn-warning">Create</button>
     </form>
+</div>
+    
 
 @endsection
