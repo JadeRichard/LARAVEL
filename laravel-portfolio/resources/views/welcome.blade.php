@@ -1,7 +1,6 @@
 @extends('back.layouts.app')
 
 @section('content')
-    
     @include('front.partials.navbar')
 
     @include('front.pages.banner')
@@ -23,7 +22,4 @@
     </main><!-- End #main -->
 
     @include('front.partials.footer')
-
-
 @endsection
-  

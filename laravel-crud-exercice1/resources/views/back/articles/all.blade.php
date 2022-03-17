@@ -6,7 +6,7 @@
         <div class="alert alert-success">
             {{ session()->get('message') }}
         </div>
-    @endif
+@endif
 <a href="{{ route("back.articles.create") }}" class="btn btn-warning" >Create</a>
 <table class="table">
     <thead>
