@@ -12,14 +12,6 @@
             </div>
         @endif
 
-        {{-- @if (count($fact) > 4 )
-        <div class="alert alert-danger">
-            <div class="mx-5">
-                Can't create more that four elements
-            </div>
-        </div>
-        @endif --}}
-
         <a href="{{ route('back.facts.create') }}" class="btn btn-warning">Create</a>
 
         <table class="table">

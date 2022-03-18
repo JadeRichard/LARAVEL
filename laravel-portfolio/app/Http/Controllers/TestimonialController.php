@@ -36,7 +36,6 @@ class TestimonialController extends Controller
     public function destroy($id){
         $testimonial = Testimonial::find($id);
         $testimonialarr = Testimonial::all();
-        
         if (count($testimonialarr) > 1) {
             $testimonial->delete();
             return redirect()->back()->with('message', 'Element destroyed');
