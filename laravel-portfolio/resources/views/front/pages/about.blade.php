@@ -20,15 +20,19 @@
           <div class="row">
             <div class="col-lg-6">
               <ul>
-                @for ($i = 0; $i < 4; $i++)
-                <li><i class="{{ $about[$i]->icon }}"></i> <strong>{{ $about[$i]->info }}</strong> <span>{{ $about[$i]->text }}</span></li>
+                @for ($i = 0; $i < count($about); $i++)
+                  @if ($i % 2 == 0)
+                    <li><i class="{{ $about[$i]->icon }}"></i> <strong>{{ $about[$i]->info }}</strong> <span>{{ $about[$i]->text }}</span></li>
+                  @endif
                 @endfor
               </ul>
             </div>
             <div class="col-lg-6">
               <ul>
-                @for ($i = 4; $i < 8; $i++)
-                <li><i class="{{ $about[$i]->icon }}"></i> <strong>{{ $about[$i]->info }}</strong> <span>{{ $about[$i]->text }}</span></li>
+                @for ($i = 0; $i < count($about); $i++)
+                  @if ($i % 2 == 1)
+                    <li><i class="{{ $about[$i]->icon }}"></i> <strong>{{ $about[$i]->info }}</strong> <span>{{ $about[$i]->text }}</span></li>
+                  @endif
                 @endfor
               </ul>
             </div>

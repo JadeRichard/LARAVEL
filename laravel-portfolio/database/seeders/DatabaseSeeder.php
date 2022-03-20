@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             SkillSeeder::class,
             TitleSeeder::class,
+            IconSeeder::class,
+            ImageSeeder::class,
+            BannerSeeder::class,
         ]);
     }
 }

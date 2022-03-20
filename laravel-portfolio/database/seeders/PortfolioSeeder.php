@@ -16,47 +16,47 @@ class PortfolioSeeder extends Seeder
     public function run()
     {
         DB::table('portfolios')->insert([
-            "image"=>"img/portfolio/portfolio-1.jpg",
+            "image"=>"portfolio/portfolio-1.jpg",
             "title"=>"App 1",
             "filter"=>"app"
         ]);
         DB::table('portfolios')->insert([
-            "image"=>"img/portfolio/portfolio-2.jpg",
+            "image"=>"portfolio/portfolio-2.jpg",
             "title"=>"Web 3",
             "filter"=>"web"
         ]);
         DB::table('portfolios')->insert([
-            "image"=>"img/portfolio/portfolio-3.jpg",
+            "image"=>"portfolio/portfolio-3.jpg",
             "title"=>"App 2",
             "filter"=>"app"
         ]);
         DB::table('portfolios')->insert([
-            "image"=>"img/portfolio/portfolio-4.jpg",
+            "image"=>"portfolio/portfolio-4.jpg",
             "title"=>"Card 2",
             "filter"=>"card"
         ]);
         DB::table('portfolios')->insert([
-            "image"=>"img/portfolio/portfolio-5.jpg",
+            "image"=>"portfolio/portfolio-5.jpg",
             "title"=>"Web 2",
             "filter"=>"web"
         ]);
         DB::table('portfolios')->insert([
-            "image"=>"img/portfolio/portfolio-6.jpg",
+            "image"=>"portfolio/portfolio-6.jpg",
             "title"=>"App 3",
             "filter"=>"app"
         ]);
         DB::table('portfolios')->insert([
-            "image"=>"img/portfolio/portfolio-7.jpg",
+            "image"=>"portfolio/portfolio-7.jpg",
             "title"=>"Card 1",
             "filter"=>"card"
         ]);
         DB::table('portfolios')->insert([
-            "image"=>"img/portfolio/portfolio-8.jpg",
+            "image"=>"portfolio/portfolio-8.jpg",
             "title"=>"Card 3",
             "filter"=>"card"
         ]);
         DB::table('portfolios')->insert([
-            "image"=>"img/portfolio/portfolio-9.jpg",
+            "image"=>"portfolio/portfolio-9.jpg",
             "title"=>"Web 3",
             "filter"=>"web"
         ]);

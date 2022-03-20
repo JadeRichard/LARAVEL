@@ -80,6 +80,32 @@
                 </a>
                 <span class="tooltip">Title</span>
             </li>
+            <li>
+                <a href="{{ route('back.images.all') }}">
+                    <i class='bx bx-images'></i>
+                    <span class="links_name">Image</span>
+                </a>
+                <span class="tooltip">Image</span>
+            </li>
+
+            <li>
+                <a href="{{ route('back.banner.all') }}">
+                    <i class='bx bx-tab' ></i>
+                    <span class="links_name">Banner</span>
+                </a>
+                <span class="tooltip">Banner</span>
+            </li>
+
+            <li>
+                <a href="{{ route('back.icons.all') }}">
+                    <i class='bx bx-devices' ></i>
+                    <span class="links_name">Icon</span>
+                </a>
+                <span class="tooltip">Icon</span>
+            </li>
+
+
+            
             <li class="profile">
                 <div class="profile-details">
                     <!--<img src="profile.jpg" alt="profileImg">-->

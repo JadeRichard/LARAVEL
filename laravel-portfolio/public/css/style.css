@@ -198,6 +198,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
+  /* {{ asset("img/" . $image[1]->source) }} */
   background: url("../img/hero-bg.jpg") top center;
   background-size: cover;
 }
@@ -865,6 +866,10 @@ section {
 .contact .php-email-form button[type=submit]:hover {
   background: #37b3ed;
 }
+
+.btn{
+  width: fit-content;
+}
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -910,6 +915,11 @@ section {
   color: #0e2442;
   content: "/";
 }
+
+table>.img{
+  max-width: 100px;
+}
+
 @media (max-width: 768px) {
   .breadcrumbs .d-flex {
     display: block !important;

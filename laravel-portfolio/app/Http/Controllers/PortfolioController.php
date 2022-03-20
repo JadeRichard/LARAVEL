@@ -24,11 +24,12 @@ class PortfolioController extends Controller
 
     public function update($id, Request $request) {
         $portfolio = Portfolio::find($id);
-        $portfolio->image = $request->image;
+        $portfolio->image = $request->file("image")->hashName();
         $portfolio->title = $request->title;
         $portfolio->filter = $request->filter;
         $portfolio->updated_at = now();
         $portfolio->save();
+        $request->file("image")->storePublicly("img", "public");
         return redirect()->route("back.portfolios.all")->with('message', 'Element updated');
     }
 
@@ -49,11 +50,12 @@ class PortfolioController extends Controller
             'title' => 'required',
             'filter' => 'required',
         ]);
-        $portfolio->image = $request->image;
+        $portfolio->image = $request->file("image")->hashName();
         $portfolio->title = $request->title;
         $portfolio->filter = $request->filter;
         $portfolio->updated_at = now();
         $portfolio->save();
+        $request->file("image")->storePublicly("img", "public");
         return redirect()->route("back.portfolios.all")->with('message', 'Element created');
     }
 

@@ -66,6 +66,17 @@
   @yield('skills.read')
   @yield('testimonials.read')
   @yield('titles.read')
+  @yield('banner.all')
+  @yield('banner.edit')
+  @yield('banner.read')
+  @yield('icons.all')
+  @yield('icons.create')
+  @yield('icons.read')
+  @yield('icons.edit')
+  @yield('images.all')
+  @yield('images.edit')
+  @yield('images.read')
+
 
     <!-- Vendor JS Files -->
   <script src='{{ asset("vendor/purecounter/purecounter.js") }}'></script>

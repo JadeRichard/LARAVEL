@@ -29,10 +29,10 @@
                         <td>{{ $item->info }}</td>
                         <td>{{ $item->text }}</td>
                         <td>
-                            <a href="{{ route('back.abouts.edit', $item->id) }}" class="btn btn-success">Edit</a>
+                            <a href="{{ route('back.abouts.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>
                         <td>
-                            <a href="{{ route('back.abouts.read', $item->id) }}" class="btn btn-warning">Read</a>
+                            <a href="{{ route('back.abouts.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                         </td>
                     </tr>
                 @endforeach

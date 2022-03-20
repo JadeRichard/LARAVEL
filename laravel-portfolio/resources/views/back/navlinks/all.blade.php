@@ -33,14 +33,14 @@
                         <td>
                             <form action="{{ route('back.navlinks.destroy', $item->id) }}" method="post">
                                 @csrf
-                                <button class="btn btn-danger" type="submit">Delete</button>
+                                <button class="btn btn-danger" type="submit"><i class='bx bx-trash'></i></button>
                             </form>
                         </td>
                         <td>
-                            <a href="{{ route('back.navlinks.edit', $item->id) }}" class="btn btn-success">Edit</a>
+                            <a href="{{ route('back.navlinks.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>
                         <td>
-                            <a href="{{ route('back.navlinks.read', $item->id) }}" class="btn btn-warning">Read</a>
+                            <a href="{{ route('back.navlinks.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                         </td>
                     </tr>
                 @endforeach
