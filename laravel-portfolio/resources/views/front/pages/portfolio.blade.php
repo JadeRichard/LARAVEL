@@ -23,9 +23,10 @@
         @foreach ($portfolio as $item)
         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->filter }}">
           <div class="portfolio-wrap">
-            <img src="{{ asset($item->image) }}" class="img-fluid" alt="">
+            {{-- "img/" . $portfolio->image --}}
+            <img src="{{ asset("img/" . $item->image) }}" class="img-fluid" alt="">
             <div class="portfolio-links">
-              <a href="{{ asset( $item->image ) }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $item->title }}"><i class="bx bx-plus"></i></a>
+              <a href="{{ "img/" . $item->image }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $item->title }}"><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>

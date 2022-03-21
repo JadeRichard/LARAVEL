@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ImageController extends Controller
 {
@@ -25,6 +26,10 @@ class ImageController extends Controller
     public function update($id, Request $request) {
         $image = Image::find($id);
         $image->source = $request->file("source")->hashName();
+        $destination = "img/" . $image->source;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $image->updated_at = now();
         $image->save();
         $request->file("source")->storePublicly("img", "public");

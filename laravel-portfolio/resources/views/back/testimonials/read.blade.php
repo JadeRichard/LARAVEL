@@ -20,7 +20,7 @@
             <tr>
                 <th scope="row">{{ $testimonial->id }}</th>
                 <td>{{ $testimonial->text }}</td>
-                <td>{{ $testimonial->icon }}</td>
+                <td><img src="{{ asset("img/" . $testimonial->icon) }}" alt=""></td>
                 <td>{{ $testimonial->name }}</td>
                 <td>{{ $testimonial->role }}</td>
                 <td><a type="submit" class="btn btn-warning" href="{{ route('back.testimonials.all') }}">Back</button></td>

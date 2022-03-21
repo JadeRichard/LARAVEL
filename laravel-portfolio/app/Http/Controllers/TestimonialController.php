@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class TestimonialController extends Controller
 {
@@ -25,17 +26,26 @@ class TestimonialController extends Controller
     public function update($id, Request $request) {
         $testimonial = Testimonial::find($id);
         $testimonial->text = $request->text;
-        $testimonial->icon = $request->icon;
+        $testimonial->icon = $request->file("icon")->hashName();
+        $destination = "img/" . $testimonial->icon;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $testimonial->name = $request->name;
         $testimonial->role = $request->role;
         $testimonial->updated_at = now();
         $testimonial->save();
+        $request->file("icon")->storePublicly("img", "public");
         return redirect()->route("back.testimonials.all")->with('message', 'Element updated');
     }
 
     public function destroy($id){
         $testimonial = Testimonial::find($id);
         $testimonialarr = Testimonial::all();
+        $destination = "img/" . $testimonial->icon;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         if (count($testimonialarr) > 1) {
             $testimonial->delete();
             return redirect()->back()->with('message', 'Element destroyed');
@@ -57,11 +67,13 @@ class TestimonialController extends Controller
             'role' => 'required',
         ]);
         $testimonial->text = $request->text;
-        $testimonial->icon = $request->icon;
+        $testimonial->icon = $request->file("icon")->hashName();
+        
         $testimonial->name = $request->name;
         $testimonial->role = $request->role;
         $testimonial->updated_at = now();
         $testimonial->save();
+        $request->file("icon")->storePublicly("img", "public");
         return redirect()->route("back.testimonials.all")->with('message', 'Element created');
     }
 

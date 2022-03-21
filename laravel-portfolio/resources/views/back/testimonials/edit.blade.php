@@ -3,12 +3,12 @@
 @section('testimonials.edit')
     <h1>Edit</h1>
 
-    <form action="{{ route('back.testimonials.update', $testimonial->id) }}" method="post">
+    <form action="{{ route('back.testimonials.update', $testimonial->id) }}" method="post" enctype="multipart/form-data" >
         @csrf
         <label for="">Text :</label>
         <input type="text" name="text" value="{{ $testimonial->text }}">
         <label for="">Icon :</label>
-        <input type="text" name="icon" value="{{ $testimonial->icon }}">
+        <input type="file" name="icon" value="{{ $testimonial->icon }}">
         <label for="">Name :</label>
         <input type="text" name="name" value="{{ $testimonial->name }}">
         <label for="">Role :</label>

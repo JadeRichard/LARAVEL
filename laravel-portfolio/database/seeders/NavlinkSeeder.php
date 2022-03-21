@@ -16,22 +16,22 @@ class NavlinkSeeder extends Seeder
     public function run()
     {
         DB::table('navlinks')->insert([
-            "icon"=>"bx bx-home",
+            "icon"=>"<i class='bx bx-home'></i>",
             "path"=>"#hero",
             "text"=>"Home",
         ]);
         DB::table('navlinks')->insert([
-            "icon"=>"bx bx-user",
+            "icon"=>"<i class='bx bx-user'></i>",
             "path"=>"#about",
             "text"=>"About",
         ]);
         DB::table('navlinks')->insert([
-            "icon"=>"bx bx-book-content",
+            "icon"=>"<i class='bx bx-book-content'></i>",
             "path"=>"#porfolio",
             "text"=>"Portfolio",
         ]);
         DB::table('navlinks')->insert([
-            "icon"=>"bx bx-envelope",
+            "icon"=>"<i class='bx bx-envelope'></i>",
             "path"=>"#contact",
             "text"=>"Contact",
         ]);

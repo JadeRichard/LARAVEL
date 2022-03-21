@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PortfolioController extends Controller
 {
@@ -24,6 +25,10 @@ class PortfolioController extends Controller
 
     public function update($id, Request $request) {
         $portfolio = Portfolio::find($id);
+        $destination = "img/" . $portfolio->image;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $portfolio->image = $request->file("image")->hashName();
         $portfolio->title = $request->title;
         $portfolio->filter = $request->filter;
@@ -35,6 +40,10 @@ class PortfolioController extends Controller
 
     public function destroy($id){
         $portfolio = Portfolio::find($id);
+        $destination = "img/" . $portfolio->image;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $portfolio->delete();
         return redirect()->back()->with('message', 'Element destroyed');
     }

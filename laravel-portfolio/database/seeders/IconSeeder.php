@@ -16,23 +16,23 @@ class IconSeeder extends Seeder
     public function run()
     {
         DB::table('icons')->insert([
-            "source"=>"bx bxl-twitter",
+            "source"=>"<i class='bx bxl-twitter'></i>",
             "link"=>"#",
         ]);
         DB::table('icons')->insert([
-            "source"=>"bx bxl-facebook",
+            "source"=>"<i class='bx bxl-facebook'></i>",
             "link"=>"#",
         ]);
         DB::table('icons')->insert([
-            "source"=>"bx bxl-instagram",
+            "source"=>"<i class='bx bxl-instagram'></i>",
             "link"=>"#",
         ]);
         DB::table('icons')->insert([
-            "source"=>"bx bxl-skype",
+            "source"=>"<i class='bx bxl-skype'></i>",
             "link"=>"#",
         ]);
         DB::table('icons')->insert([
-            "source"=>"bx bxl-linkedin",
+            "source"=>"<i class='bx bxl-linkedin'></i>",
             "link"=>"#",
         ]);
     }

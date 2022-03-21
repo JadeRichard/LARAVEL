@@ -12,8 +12,6 @@
             </div>
         @endif
 
-        <a href="{{ route('back.navlinks.create') }}" class="btn btn-warning">Create</a>
-
         <table class="table">
             <thead>
                 <tr>
@@ -27,15 +25,10 @@
                 @foreach ($navlink as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
-                        <td>{{ $item->icon }}</td>
+                        <td>{!! $item->icon !!}</td>
                         <td>{{ $item->path }}</td>
                         <td>{{ $item->text }}</td>
-                        <td>
-                            <form action="{{ route('back.navlinks.destroy', $item->id) }}" method="post">
-                                @csrf
-                                <button class="btn btn-danger" type="submit"><i class='bx bx-trash'></i></button>
-                            </form>
-                        </td>
+                    
                         <td>
                             <a href="{{ route('back.navlinks.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>

@@ -36,7 +36,7 @@ class FactSeeder extends Seeder
         DB::table('facts')->insert([
             "icon"=>"bi bi-people",
             "number"=>"32",
-            "important"=>"hard Workers",
+            "important"=>"Hard Workers",
             "text"=>"rerum asperiores dolor",
         ]);
     }

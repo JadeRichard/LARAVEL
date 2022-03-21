@@ -18,7 +18,7 @@
                 {{ $item->text }}
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
-              <img src="{{ asset($item->icon) }}" class="testimonial-img" alt="">
+              <img src="{{ asset("img/" . $item->icon) }}" class="testimonial-img" alt="">
               <h3>{{ $item->name }}</h3>
               <h4>{{ $item->role }}</h4>
             </div>

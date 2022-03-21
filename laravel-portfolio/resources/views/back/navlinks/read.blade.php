@@ -17,7 +17,7 @@
         <tbody>
             <tr>
                 <th scope="row">{{ $navlink->id }}</th>
-                <td>{{ $navlink->icon }}</td>
+                <td>{!! $navlink->icon !!}</td>
                 <td>{{ $navlink->path }}</td>
                 <td>{{ $navlink->text }}</td>
                 <td><a type="submit" class="btn btn-warning" href="{{ route('back.navlinks.all') }}">Back</button></td>

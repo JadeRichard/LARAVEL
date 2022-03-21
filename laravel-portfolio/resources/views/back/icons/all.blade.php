@@ -26,7 +26,7 @@
                 @foreach ($icon as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
-                        <td>{{ $item->source }}</td>
+                        <td>{!! $item->source !!}</td>
                         <td>{{ $item->link }}</td>
                         <td>
                             <form action="{{ route('back.icons.destroy', $item->id) }}" method="post">

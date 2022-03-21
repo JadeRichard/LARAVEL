@@ -29,7 +29,7 @@
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->text }}</td>
-                        <td>{{ $item->icon }}</td>
+                        <td><img src="{{ asset("img/" . $item->icon) }}" alt=""></td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->role }}</td>
 

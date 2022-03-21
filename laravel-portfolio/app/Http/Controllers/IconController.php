@@ -24,11 +24,10 @@ class IconController extends Controller
 
     public function update($id, Request $request) {
         $icon = Icon::find($id);
-        $icon->source = $request->file("image")->hashName();
+        $icon->source = $request->source;
         $icon->link = $request->link;
         $icon->updated_at = now();
         $icon->save();
-        $request->file("image")->storePublicly("img", "public");
         return redirect()->route("back.icons.all")->with('message', 'Element updated');
     }
 
@@ -48,11 +47,10 @@ class IconController extends Controller
             'source' => 'required',
             'link' => 'required',
         ]);
-        $icon->source = $request->file("image")->hashName();
+        $icon->source = $request->source;
         $icon->link = $request->link;
         $icon->updated_at = now();
         $icon->save();
-        $request->file("image")->storePublicly("img", "public");
         return redirect()->route("back.icons.all")->with('message', 'Element created');
     }
 

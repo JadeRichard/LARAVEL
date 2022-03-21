@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('icons', function (Blueprint $table) {
             $table->id();
             $table->string("link");
-            $table->string("source");
+            $table->text("source");
             $table->timestamps();
         });
     }

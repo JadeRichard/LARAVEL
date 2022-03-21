@@ -11,12 +11,12 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('back.testimonials.store') }}" method="post">
+    <form action="{{ route('back.testimonials.store') }}" method="post" enctype="multipart/form-data" >
         @csrf
         <label for="">Text :</label>
         <input type="text" name="text">
         <label for="">Icon :</label>
-        <input type="text" name="icon">
+        <input type="file" name="icon">
         <label for="">Name :</label>
         <input type="text" name="name">
         <label for="">Role :</label>
