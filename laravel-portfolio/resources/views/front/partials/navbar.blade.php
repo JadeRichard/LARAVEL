@@ -21,6 +21,8 @@
                 <li><a href="{{ $item->path }}" class="nav-link scrollto active"><i class="{{ $item->icon }}"></i>
                     <span>{{ $item->text }}</span></a></li>
                 @endforeach
+                <li><a href="/backoffice"><i class='bx bx-log-in'></i>
+                <span>Log In</span></a></li>
             </ul>
         </nav><!-- .nav-menu -->
     </div>
