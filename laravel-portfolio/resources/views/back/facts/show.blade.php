@@ -18,7 +18,7 @@
             <tbody>
                 <tr>
                     <th scope="row">{{ $fact->id }}</th>
-                    <td>{{ $fact->icon }}</td>
+                    <td>{!! $fact->icon !!}</td>
                     <td>{{ $fact->number }}</td>
                     <td>{{ $fact->important }}</td>
                     <td>{{ $fact->text }}</td>
