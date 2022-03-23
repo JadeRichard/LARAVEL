@@ -12,18 +12,17 @@ class AboutController extends Controller
         return view('back.abouts.all', compact('about'));
     }
 
-    public function read($lid){
-        $about = About::find($lid);
-        return view("back.abouts.read", compact('about'));
+    public function show(About $about){
+        
+        return view("back.abouts.show", compact('about'));
     }
 
-    public function edit($lid){
-        $about = About::find($lid);
+    public function edit(About $about){
+        
         return view('back.abouts.edit', compact('about'));
     }
 
-    public function update($id, Request $request) {
-        $about = About::find($id);
+    public function update(Request $request, About $about) {
         $about->info = $request->info;
         $about->text = $request->text;
         $about->updated_at = now();

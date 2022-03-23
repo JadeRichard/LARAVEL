@@ -1,11 +1,11 @@
 @extends('back.layouts.app')
 
-@section('portfolios.read')
+@section('portfolios.show')
 
 @include('front.partials.navback')
 
 <div class="container" style="height:30vh; width:50%; margin-top:200px">
-    <h1>Read</h1>
+    <h1>Show</h1>
 
     <table class="table">
         <thead>

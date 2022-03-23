@@ -12,9 +12,7 @@
             </div>
         @endif
 
-
-        
-        <table class="table">
+    <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -29,10 +27,10 @@
                         <td>{{ $item->info }}</td>
                         <td>{{ $item->text }}</td>
                         <td>
-                            <a href="{{ route('back.abouts.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
+                            <a href="{{ route('abouts.edit', $item) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>
                         <td>
-                            <a href="{{ route('back.abouts.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
+                            <a href="{{ route('abouts.show', $item) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                         </td>
                     </tr>
                 @endforeach

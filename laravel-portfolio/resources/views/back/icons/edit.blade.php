@@ -3,8 +3,9 @@
 @section('icons.edit')
     <h1>Edit</h1>
 
-    <form action="{{ route('back.icons.update', $icon->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('icons.update', $icon->id) }}" method="post" enctype="multipart/form-data">
         @csrf
+        @method("PUT")
         <label for="">Source :</label>
             
                 <div class="container d-flex align-items-center justify-content-around">

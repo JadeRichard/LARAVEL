@@ -12,18 +12,15 @@ class TitleController extends Controller
         return view('back.titles.all', compact('title'));
     }
 
-    public function read($lid){
-        $title = Title::find($lid);
-        return view("back.titles.read", compact('title'));
+    public function show(Title $title){
+        return view("back.titles.show", compact('title'));
     }
 
-    public function edit($lid){
-        $title = Title::find($lid);
+    public function edit(Title $title){
         return view('back.titles.edit', compact('title'));
     }
 
-    public function update($id, Request $request) {
-        $title = Title::find($id);
+    public function update(Request $request, Title $title) {
         $title->title = $request->title;
         $title->subtitle = $request->subtitle;
         $title->updated_at = now();

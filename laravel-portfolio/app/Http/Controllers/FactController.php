@@ -12,18 +12,15 @@ class FactController extends Controller
         return view('back.facts.all', compact('fact'));
     }
 
-    public function read($lid){
-        $fact = Fact::find($lid);
-        return view("back.facts.read", compact('fact'));
+    public function show(Fact $fact){
+        return view("back.facts.show", compact('fact'));
     }
 
-    public function edit($lid){
-        $fact = Fact::find($lid);
+    public function edit(Fact $fact){
         return view('back.facts.edit', compact('fact'));
     }
 
-    public function update($id, Request $request) {
-        $fact = Fact::find($id);
+    public function update(Request $request, Fact $fact) {
         $fact->icon = $request->icon;
         $fact->number = $request->number;
         $fact->important = $request->important;
@@ -33,9 +30,8 @@ class FactController extends Controller
         return redirect()->route("back.facts.all")->with('message', 'Element updated');
     }
 
-    public function destroy($id){
+    public function destroy(Fact $fact){
        
-        $fact = Fact::find($id);
         $factarr = Fact::all();
         if (count($factarr) > 1) {
             $fact->delete();

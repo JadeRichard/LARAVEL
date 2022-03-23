@@ -3,8 +3,9 @@
 @section('testimonials.edit')
     <h1>Edit</h1>
 
-    <form action="{{ route('back.testimonials.update', $testimonial->id) }}" method="post" enctype="multipart/form-data" >
+    <form action="{{ route('testimonials.update', $testimonial->id) }}" method="post" enctype="multipart/form-data" >
         @csrf
+        @method("PUT")
         <label for="">Text :</label>
         <input type="text" name="text" value="{{ $testimonial->text }}">
         <label for="">Icon :</label>

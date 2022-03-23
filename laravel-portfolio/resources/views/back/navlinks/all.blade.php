@@ -30,10 +30,10 @@
                         <td>{{ $item->text }}</td>
                     
                         <td>
-                            <a href="{{ route('back.navlinks.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
+                            <a href="{{ route('navlinks.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>
                         <td>
-                            <a href="{{ route('back.navlinks.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
+                            <a href="{{ route('navlinks.show', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                         </td>
                     </tr>
                 @endforeach

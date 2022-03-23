@@ -3,8 +3,9 @@
 @section('abouts.edit')
     <h1>Edit</h1>
 
-    <form action="{{ route('back.abouts.update', $about->id) }}" method="post">
+    <form action="{{ route('abouts.update', $about->id) }}" method="POST">
         @csrf
+        @method("PUT")
         <label for="">Info :</label>
         <input type="text" name="info" value="{{ $about->info }}">
         <label for="">Text :</label>

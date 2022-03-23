@@ -12,18 +12,15 @@ class NavlinkController extends Controller
         return view('back.navlinks.all', compact('navlink'));
     }
 
-    public function read($lid){
-        $navlink = Navlink::find($lid);
-        return view("back.navlinks.read", compact('navlink'));
+    public function show(Navlink $navlink){
+        return view("back.navlinks.show", compact('navlink'));
     }
 
-    public function edit($lid){
-        $navlink = Navlink::find($lid);
+    public function edit(Navlink $navlink){
         return view('back.navlinks.edit', compact('navlink'));
     }
 
-    public function update($id, Request $request) {
-        $navlink = Navlink::find($id);
+    public function update(Request $request, Navlink $navlink) {
         $navlink->icon = $request->icon;
         $navlink->path = $request->path;
         $navlink->text = $request->text;

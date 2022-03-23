@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <a href="{{ route('back.skills.create') }}" class="btn btn-warning">Create</a>
+        <a href="{{ route('skills.create') }}" class="btn btn-warning">Create</a>
 
         <table class="table">
             <thead>
@@ -30,16 +30,17 @@
                         <td>{{ $item->value }}</td>
 
                         <td>
-                            <form action="{{ route('back.skills.destroy', $item->id) }}" method="post">
+                            <form action="{{ route('skills.destroy', $item->id) }}" method="post">
                                 @csrf
+                                @method("DELETE")
                                 <button class="btn btn-danger" type="submit"><i class='bx bx-trash'></i></button>
                             </form>
                         </td>
                         <td>
-                            <a href="{{ route('back.skills.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
+                            <a href="{{ route('skills.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>
                         <td>
-                            <a href="{{ route('back.skills.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
+                            <a href="{{ route('skills.show', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                         </td>
 
                     </tr>

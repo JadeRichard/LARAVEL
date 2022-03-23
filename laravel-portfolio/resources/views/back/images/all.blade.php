@@ -25,10 +25,10 @@
                         <th scope="row">{{ $item->id }}</th>
                         <td><img src="{{ asset("img/" . $item->source) }}" alt=""></td>
                         <td>
-                            <a href="{{ route('back.images.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
+                            <a href="{{ route('images.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>
                         <td>
-                            <a href="{{ route('back.images.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
+                            <a href="{{ route('images.show', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                         </td>
                     </tr>
                 @endforeach

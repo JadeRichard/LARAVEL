@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <a href="{{ route('back.icons.create') }}" class="btn btn-warning">Create</a>
+        <a href="{{ route('icons.create') }}" class="btn btn-warning">Create</a>
 
         <table class="table">
             <thead>
@@ -29,16 +29,17 @@
                         <td>{!! $item->source !!}</td>
                         <td>{{ $item->link }}</td>
                         <td>
-                            <form action="{{ route('back.icons.destroy', $item->id) }}" method="post">
+                            <form action="{{ route('icons.destroy', $item->id) }}" method="post">
                                 @csrf
+                                @method("DELETE")
                                 <button class="btn btn-danger" type="submit"><i class='bx bx-trash'></i></button>
                             </form>
                         </td>
                         <td>
-                            <a href="{{ route('back.icons.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
+                            <a href="{{ route('icons.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>
                         <td>
-                            <a href="{{ route('back.icons.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
+                            <a href="{{ route('icons.show', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                         </td>
                     </tr>
                 @endforeach

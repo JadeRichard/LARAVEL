@@ -1,11 +1,11 @@
 @extends('back.layouts.app')
 
-@section('icons.read')
+@section('icons.show')
 
 @include('front.partials.navback')
 
 <div class="container" style="height:30vh; width:50%; margin-top:200px">
-    <h1>Read</h1>
+    <h1>Show</h1>
 
     <table class="table">
         <thead>

@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <a href="{{ route('back.testimonials.create') }}" class="btn btn-warning">Create</a>
+        <a href="{{ route('testimonials.create') }}" class="btn btn-warning">Create</a>
 
         <table class="table">
             <thead>
@@ -34,16 +34,17 @@
                         <td>{{ $item->role }}</td>
 
                         <td>
-                            <form action="{{ route('back.testimonials.destroy', $item->id) }}" method="post">
+                            <form action="{{ route('testimonials.destroy', $item->id) }}" method="post">
                                 @csrf
+                                @method("DELETE")
                                 <button class="btn btn-danger" type="submit"><i class='bx bx-trash'></i></button>
                             </form>
                         </td>
                         <td>
-                            <a href="{{ route('back.testimonials.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
+                            <a href="{{ route('testimonials.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>
                         <td>
-                            <a href="{{ route('back.testimonials.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
+                            <a href="{{ route('testimonials.show', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                         </td>
 
                     </tr>

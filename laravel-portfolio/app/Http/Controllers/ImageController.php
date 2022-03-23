@@ -13,18 +13,15 @@ class ImageController extends Controller
         return view('back.images.all', compact('image'));
     }
 
-    public function read($lid){
-        $image = Image::find($lid);
-        return view("back.images.read", compact('image'));
+    public function show(Image $image){
+        return view("back.images.show", compact('image'));
     }
 
-    public function edit($lid){
-        $image = Image::find($lid);
+    public function edit(Image $image){
         return view('back.images.edit', compact('image'));
     }
 
-    public function update($id, Request $request) {
-        $image = Image::find($id);
+    public function update(Request $request, Image $image) {
         $image->source = $request->file("source")->hashName();
         $destination = "img/" . $image->source;
         if (File::exists($destination)) {

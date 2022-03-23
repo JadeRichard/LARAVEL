@@ -27,10 +27,10 @@
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->subtitle }}</td>
                         <td>
-                          <a href="{{ route('back.titles.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
+                          <a href="{{ route('titles.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                       </td>
                       <td>
-                          <a href="{{ route('back.titles.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
+                          <a href="{{ route('titles.show', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                       </td>
                     </tr>
                 @endforeach

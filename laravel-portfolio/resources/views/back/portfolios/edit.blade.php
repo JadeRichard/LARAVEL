@@ -3,8 +3,9 @@
 @section('portfolios.edit')
     <h1>Edit</h1>
 
-    <form action="{{ route('back.portfolios.update', $portfolio->id) }}" method="post" enctype="multipart/form-data" >
+    <form action="{{ route('portfolios.update', $portfolio->id) }}" method="post" enctype="multipart/form-data" >
         @csrf
+        @method("PUT")
         <label for="">Image :</label>
         <input type="file" name="image" value="{{ $portfolio->image }}">
         <label for="">Title :</label>

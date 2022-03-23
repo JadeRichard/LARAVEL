@@ -12,18 +12,15 @@ class SkillController extends Controller
         return view('back.skills.all', compact('skill'));
     }
 
-    public function read($lid){
-        $skill = Skill::find($lid);
-        return view("back.skills.read", compact('skill'));
+    public function show(Skill $skill){
+        return view("back.skills.show", compact('skill'));
     }
 
-    public function edit($lid){
-        $skill = Skill::find($lid);
+    public function edit(Skill $skill){
         return view('back.skills.edit', compact('skill'));
     }
 
-    public function update($id, Request $request) {
-        $skill = Skill::find($id);
+    public function update(Request $request, Skill $skill) {
         $skill->skill = $request->skill;
         $skill->value = $request->value;
         $skill->updated_at = now();
@@ -31,8 +28,7 @@ class SkillController extends Controller
         return redirect()->route("back.skills.all")->with('message', 'Element updated');
     }
 
-    public function destroy($id){
-        $skill = Skill::find($id);
+    public function destroy(Skill $skill){
         $skillarr = Skill::all();
         if (count($skillarr) > 1) {
             $skill->delete();

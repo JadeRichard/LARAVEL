@@ -3,8 +3,9 @@
 @section('banner.edit')
     <h1>Edit</h1>
 
-    <form action="{{ route('back.banners.update', $banner->id) }}" method="post">
+    <form action="{{ route('banners.update', $banner->id) }}" method="post">
         @csrf
+        @method("PUT")
         <label for="">Name :</label>
         <input type="text" name="name" value="{{ $banner->name }}">
         <label for="">Description :</label>

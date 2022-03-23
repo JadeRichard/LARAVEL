@@ -12,18 +12,15 @@ class IconController extends Controller
         return view('back.icons.all', compact('icon'));
     }
 
-    public function read($lid){
-        $icon = Icon::find($lid);
-        return view("back.icons.read", compact('icon'));
+    public function show(Icon $icon){
+        return view("back.icons.show", compact('icon'));
     }
 
-    public function edit($lid){
-        $icon = Icon::find($lid);
+    public function edit(Icon $icon){
         return view('back.icons.edit', compact('icon'));
     }
 
-    public function update($id, Request $request) {
-        $icon = Icon::find($id);
+    public function update(Request $request, Icon $icon) {
         $icon->source = $request->source;
         $icon->link = $request->link;
         $icon->updated_at = now();
@@ -31,8 +28,7 @@ class IconController extends Controller
         return redirect()->route("back.icons.all")->with('message', 'Element updated');
     }
 
-    public function destroy($id){
-        $icon = Icon::find($id);
+    public function destroy(Icon $icon){
         $icon->delete();
         return redirect()->back()->with('message', 'Element destroyed');
     }

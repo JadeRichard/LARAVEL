@@ -3,8 +3,9 @@
 @section('titles.edit')
     <h1>Edit</h1>
 
-    <form action="{{ route('back.titles.update', $title->id) }}" method="post">
+    <form action="{{ route('titles.update', $title->id) }}" method="post">
         @csrf
+        @method("PUT")
         <label for="">Title :</label>
         <input type="text" name="title" value="{{ $title->title }}">
         <label for="">Subtitle :</label>

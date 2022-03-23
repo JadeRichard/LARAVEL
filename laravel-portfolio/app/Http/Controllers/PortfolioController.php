@@ -13,18 +13,15 @@ class PortfolioController extends Controller
         return view('back.portfolios.all', compact('portfolio'));
     }
 
-    public function read($lid){
-        $portfolio = Portfolio::find($lid);
-        return view("back.portfolios.read", compact('portfolio'));
+    public function show(Portfolio $portfolio){
+        return view("back.portfolios.show", compact('portfolio'));
     }
 
-    public function edit($lid){
-        $portfolio = Portfolio::find($lid);
+    public function edit(Portfolio $portfolio){
         return view('back.portfolios.edit', compact('portfolio'));
     }
 
-    public function update($id, Request $request) {
-        $portfolio = Portfolio::find($id);
+    public function update(Request $request, Portfolio $portfolio) {
         $destination = "img/" . $portfolio->image;
         if (File::exists($destination)) {
             File::delete($destination);
@@ -38,8 +35,7 @@ class PortfolioController extends Controller
         return redirect()->route("back.portfolios.all")->with('message', 'Element updated');
     }
 
-    public function destroy($id){
-        $portfolio = Portfolio::find($id);
+    public function destroy(Portfolio $portfolio){
         $destination = "img/" . $portfolio->image;
         if (File::exists($destination)) {
             File::delete($destination);

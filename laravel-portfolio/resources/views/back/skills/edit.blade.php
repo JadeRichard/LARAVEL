@@ -3,8 +3,9 @@
 @section('skills.edit')
     <h1>Edit</h1>
 
-    <form action="{{ route('back.skills.update', $skill->id) }}" method="post">
+    <form action="{{ route('skills.update', $skill->id) }}" method="post">
         @csrf
+        @method("PUT")
         <label for="">Skill :</label>
         <input type="text" name="skill" value="{{ $skill->skill }}">
         <label for="">Value :</label>

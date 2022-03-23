@@ -3,8 +3,9 @@
 @section('navlinks.edit')
     <h1>Edit</h1>
 
-    <form action="{{ route('back.navlinks.update', $navlink->id) }}" method="post">
+    <form action="{{ route('navlinks.update', $navlink->id) }}" method="post">
         @csrf
+        @method("PUT")
         <label for="">Icon :</label>
             
                 <div class="container d-flex align-items-center justify-content-around">

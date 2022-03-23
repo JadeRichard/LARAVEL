@@ -62,7 +62,20 @@ Route::get('back/images/all', [ImageController::class,'index'])->name('back.imag
 Route::get('back/icons/all', [IconController::class,'index'])->name('back.icons.all');
 Route::get('back/banner/all', [BannerController::class,'index'])->name('back.banner.all');
 
-Route::post('back/abouts/{id}/delete', [AboutController::class, "destroy"])->name('back.abouts.destroy');
+Route::resource('back/abouts', AboutController::class );
+Route::resource('back/banners', BannerController::class );
+Route::resource('back/facts', FactController::class );
+Route::resource('back/icons', IconController::class );
+Route::resource('back/images', ImageController::class );
+Route::resource('back/navlinks', NavlinkController::class );
+Route::resource('back/portfolios', PortfolioController::class );
+Route::resource('back/skills', SkillController::class );
+Route::resource('back/testimonials', TestimonialController::class );
+Route::resource('back/titles', TitleController::class );
+
+
+
+/*Route::post('back/abouts/{id}/delete', [AboutController::class, "destroy"])->name('back.abouts.destroy');
 Route::get('back/abouts/edit/{id}', [AboutController::class, "edit"])->name("back.abouts.edit");
 Route::post('back/abouts/update/{id}', [AboutController::class, "update"])->name("back.abouts.update");
 Route::get('back/abouts/read/{id}', [AboutController::class, "read"])->name("back.abouts.read");
@@ -129,4 +142,4 @@ Route::get('back/images/read/{id}', [ImageController::class, "read"])->name("bac
 Route::get('back/banners/edit/{id}', [BannerController::class, "edit"])->name("back.banners.edit");
 Route::post('back/banners/update/{id}', [BannerController::class, "update"])->name("back.banners.update");
 Route::get('back/banners/read/{id}', [BannerController::class, "read"])->name("back.banners.read");
-
+ */

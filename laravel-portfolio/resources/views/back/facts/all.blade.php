@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <a href="{{ route('back.facts.create') }}" class="btn btn-warning">Create</a>
+        <a href="{{ route('facts.create') }}" class="btn btn-warning">Create</a>
 
         <table class="table">
             <thead>
@@ -33,16 +33,17 @@
                         <td>{{ $item->important }}</td>
                         <td>{{ $item->text }}</td>
                         <td>
-                            <form action="{{ route('back.facts.destroy', $item->id) }}" method="post">
+                            <form action="{{ route('facts.destroy', $item->id) }}" method="post">
                                 @csrf
+                                @method("DELETE")
                                 <button class="btn btn-danger" type="submit"><i class='bx bx-trash'></i></button>
                             </form>
                         </td>
                         <td>
-                            <a href="{{ route('back.facts.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
+                            <a href="{{ route('facts.edit', $item->id) }}" class="btn btn-success"><i class='bx bx-edit-alt' ></i></a>
                         </td>
                         <td>
-                            <a href="{{ route('back.facts.read', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
+                            <a href="{{ route('facts.show', $item->id) }}" class="btn btn-warning"><i class='bx bx-search-alt' ></i></a>
                         </td>
                     </tr>
                 @endforeach

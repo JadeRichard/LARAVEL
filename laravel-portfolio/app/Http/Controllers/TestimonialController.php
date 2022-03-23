@@ -13,18 +13,15 @@ class TestimonialController extends Controller
         return view('back.testimonials.all', compact('testimonial'));
     }
 
-    public function read($lid){
-        $testimonial = Testimonial::find($lid);
-        return view("back.testimonials.read", compact('testimonial'));
+    public function show(Testimonial $testimonial){
+        return view("back.testimonials.show", compact('testimonial'));
     }
 
-    public function edit($lid){
-        $testimonial = Testimonial::find($lid);
+    public function edit(Testimonial $testimonial){
         return view('back.testimonials.edit', compact('testimonial'));
     }
 
-    public function update($id, Request $request) {
-        $testimonial = Testimonial::find($id);
+    public function update(Request $request, Testimonial $testimonial) {
         $testimonial->text = $request->text;
         $testimonial->icon = $request->file("icon")->hashName();
         $destination = "img/" . $testimonial->icon;
@@ -39,8 +36,7 @@ class TestimonialController extends Controller
         return redirect()->route("back.testimonials.all")->with('message', 'Element updated');
     }
 
-    public function destroy($id){
-        $testimonial = Testimonial::find($id);
+    public function destroy(Testimonial $testimonial){
         $testimonialarr = Testimonial::all();
         $destination = "img/" . $testimonial->icon;
         if (File::exists($destination)) {
