@@ -17,7 +17,7 @@
                       </div>
                       
                       <div class="form-check">
-                        <input class='form-check-input @error('icon') is-invalid @enderror' name="icon" type="radio" value=<i class="bx bx-user"></i>
+                        <input class='form-check-input @error('icon') is-invalid @enderror' name="icon" type="radio" value='<i class="bx bx-user"></i>'>
                         <label class="form-check-label" for="">
                             <i class='bx bx-user'></i>
                         </label>
