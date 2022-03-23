@@ -11,7 +11,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('back.portfolios.store') }}" method="post"  enctype="multipart/form-data" >
+    <form action="{{ route('portfolios.store') }}" method="post"  enctype="multipart/form-data" >
         @csrf
         <label for="">Image :</label>
         <input type="file" name="image">

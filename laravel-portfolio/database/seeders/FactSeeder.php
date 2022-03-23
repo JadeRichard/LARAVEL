@@ -16,25 +16,25 @@ class FactSeeder extends Seeder
     public function run()
     {
         DB::table('facts')->insert([
-            "icon"=>"bi bi-emoji-smile",
+            "icon"=>"<i class='bi bi-emoji-smile'></i>",
             "number"=>"232",
             "important"=>"Happy Clients",
             "text"=>"consequuntur quae",
         ]);
         DB::table('facts')->insert([
-            "icon"=>"bi bi-journal-richtext",
+            "icon"=>"<i class='bi bi-journal-richtext'></i>",
             "number"=>"521",
             "important"=>"Projects",
             "text"=>"adipisci atque cum quia aut",
         ]);
         DB::table('facts')->insert([
-            "icon"=>"bi bi-headset",
+            "icon"=>"<i class='bi bi-headset'></i>",
             "number"=>"1453",
             "important"=>"Hours Of Support",
             "text"=>"aut commodi quaerat",
         ]);
         DB::table('facts')->insert([
-            "icon"=>"bi bi-people",
+            "icon"=>"<i class='bi bi-people'></i>",
             "number"=>"32",
             "important"=>"Hard Workers",
             "text"=>"rerum asperiores dolor",

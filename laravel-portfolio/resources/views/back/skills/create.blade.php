@@ -11,7 +11,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('back.skills.store') }}" method="post">
+    <form action="{{ route('skills.store') }}" method="post">
         @csrf
         <label for="">Skill :</label>
         <input type="text" name="skill">

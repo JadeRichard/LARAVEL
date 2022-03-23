@@ -41,8 +41,7 @@
             @error('icon')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
-        {{-- <label for="">Icon :</label>
-        <input type="text" name="icon" value="{{ $navlink->icon }}"> --}}
+        
         <label for="">Path :</label>
         <input type="text" name="path" value="{{ $navlink->path }}">
         <label for="">Text :</label>

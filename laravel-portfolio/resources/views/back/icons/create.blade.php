@@ -11,7 +11,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('back.icons.store') }}" method="post">
+    <form action="{{ route('icons.store') }}" method="post">
         @csrf
         <label for="">Source :</label>
             

@@ -28,7 +28,7 @@
                 @foreach ($fact as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
-                        <td><i class='{{ $item->icon }}'></td>
+                        <td>{!! $item->icon !!}</td>
                         <td>{{ $item->number }}</td>
                         <td>{{ $item->important }}</td>
                         <td>{{ $item->text }}</td>

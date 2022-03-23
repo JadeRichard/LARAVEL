@@ -11,7 +11,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('back.testimonials.store') }}" method="post" enctype="multipart/form-data" >
+    <form action="{{ route('testimonials.store') }}" method="post" enctype="multipart/form-data" >
         @csrf
         <label for="">Text :</label>
         <input type="text" name="text">

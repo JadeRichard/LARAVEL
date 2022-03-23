@@ -16,10 +16,41 @@
 
     
 
-    <form action="{{ route('back.facts.store') }}" method="post">
+    <form action="{{ route('facts.store') }}" method="post">
         @csrf
-        <label for="">Icon :</label>
-        <input type="text" name="icon">
+        <div class="container d-flex align-items-center justify-content-around">
+            <div class="form-check">
+                <input class='form-check-input @error('icon') is-invalid @enderror' name="icon" type="radio" checked value='<i class="bx bxs-home"></i>'>
+                <label class="form-check-label" for="icon">
+                    <i class='bx bxs-home'></i>
+                </label>
+              </div>
+              
+              <div class="form-check">
+                <input class='form-check-input @error('icon') is-invalid @enderror' name="icon" type="radio" value=<i class="bx bx-user"></i>
+                <label class="form-check-label" for="">
+                    <i class='bx bx-user'></i>
+                </label>
+              </div>
+              
+              <div class="form-check">
+                <input class='form-check-input @error('icon') is-invalid @enderror' name="icon" type="radio" value='<i class="bx bx-book-content"></i>'>
+                <label class="form-check-label" for="">
+                    <i class='bx bx-book-content'></i>
+                </label>
+              </div>
+              
+              <div class="form-check">
+                <input class='form-check-input @error('icon') is-invalid @enderror' name="icon" type="radio" value='<i class="bx bx-envelope"></i>'>
+                <label class="form-check-label" for="">
+                    <i class='bx bx-envelope'></i>
+                </label>
+              </div>
+          </div>
+
+    @error('icon')
+        <div class="text-danger">{{ $message }}</div>
+    @enderror
         <label for="">Number :</label>
         <input type="number" name="number">
         <label for="">Important :</label>
