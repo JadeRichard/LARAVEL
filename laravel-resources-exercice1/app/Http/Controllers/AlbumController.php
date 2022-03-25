@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AlbumController extends Controller
@@ -42,7 +43,8 @@ class AlbumController extends Controller
 
     public function create(){
         $album = Album::all();
-        return view("back.albums.create", compact("album"));
+        $user = User::all();
+        return view("back.albums.create", compact("album", "user"));
         
     }
 

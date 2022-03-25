@@ -39,16 +39,22 @@
                                         @csrf
                                         
                                         <td class="text-center">
-                                            <input type="text" name="name" >
+                                            <label for="name" >
+                                                <select name="name" id="name">
+                                                    <option value="">         </option>
+                                                    @foreach ($user as $item)
+                                                        <option value="{{ $item->name . " " . $item->firstname }}">{{ $item->name . " " . $item->firstname }}</option>
+                                                    @endforeach
+                                                </select>
                                         </td>
                                         <td class="text-center">
                                             <input type="text" name="description" >
                                         </td>
                                         <td class="text-center">
-                                            <input type="number" name="author" >
+                                            <input type="text" name="author" >
                                         </td>
                                         <td class="text-center">
-                                            <input type="date" name="photosnumber" >
+                                            <input type="number" name="photosnumber" >
                                         </td>
                                         <td class="text-center"><button type="submit"
                                                 class="btn btn-warning">Create</button></td>
