@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PhotoController extends Controller
 {
     public function index(){
         $photo = Photo::all();
-        return view('back.photos.all', compact('photo'));
+        $photo2 = DB::table('photos')->orderby('created_at','desc')->get();
+        return view('back.photos.all', compact('photo', 'photo2'));
     }
 
     public function show(Photo $photo){
