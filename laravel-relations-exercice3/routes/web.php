@@ -21,7 +21,13 @@ use App\Models\Team;
 Route::get('/', function () {
     $players = Player::all();
     $teams = Team::all();
-    return view('welcome', compact("players", "teams"));
+    $noteam = Player::all()->where('team_id', '==', '5')->random(4);
+    $rteam = Player::all()->where('team_id', '!=', '5')->random(4);
+    $playerF = Player::all()->where('team_id', '!=', '5')->where('gender', '==', 'F')->random(5); 
+    $playerM = Player::all()->where('team_id', '!=', '5')->where('gender', '==', 'M')->random(5); 
+    $playerSpain = Player::all()->where('team_id', '==', '3')->where('country', '==', 'Spain'); 
+    $playerTaiwan = Player::all()->where('team_id', '==', '2')->where('country', '==', 'Taiwan'); 
+    return view('welcome', compact("players", "teams", "playerM", "playerF", "noteam", "rteam", "playerSpain", "playerTaiwan"));
 });
 // team
 Route::get('/back/teams', [TeamController::class, 'index'])->name('team.index');

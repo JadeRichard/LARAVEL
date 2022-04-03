@@ -25,12 +25,12 @@
                         <th scope='col'>Email</th>
                         <th scope='col'>Gender</th>
                         <th scope='col'>Country</th>
+                        <th scope='col'>Role</th>
                         <th scope='col'>Club Name</th>
                     </tr> {{-- all_tr_anchor --}}
                 </thead>
                 <tbody>
                     <tr>
-
                         <td>
                             <input type='text' name='name'>
                         </td>
