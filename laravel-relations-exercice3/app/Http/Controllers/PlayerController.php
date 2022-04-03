@@ -23,6 +23,7 @@ class PlayerController extends Controller
     }
     public function store(Request $request)
     {
+        
         $player = new Player;
         $request->validate([
          'name'=> 'required',
@@ -45,6 +46,9 @@ class PlayerController extends Controller
         $player->team_id = $request->clubname;
         
         $player->save(); // store_anchor
+
+        
+        
         return redirect()->route("player.index")->with('message', "Successful storage !");
     }
     public function read($id)

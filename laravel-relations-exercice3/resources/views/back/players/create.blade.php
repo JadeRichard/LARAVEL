@@ -73,7 +73,7 @@
                             <select name="clubname">
                                 <option value="">--TEAM--</option>
                                 @php
-                                    $i = 0
+                                    $i = 1
                                 @endphp
                                 @foreach ($teams as $item)
                                     
