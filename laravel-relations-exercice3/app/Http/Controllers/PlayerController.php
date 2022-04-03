@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\Player;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class PlayerController extends Controller
@@ -17,7 +18,8 @@ class PlayerController extends Controller
     }
     public function create()
     {
-        return view("/back/players/create");
+        $teams = Team::all();
+        return view("/back/players/create", compact('teams'));
     }
     public function store(Request $request)
     {
@@ -39,8 +41,8 @@ class PlayerController extends Controller
         $player->email = $request->email;
         $player->gender = $request->gender;
         $player->country = $request->country;
-        $player->role->name = $request->role->name;
-        $player->team->clubname = $request->clubname;
+        $player->role_id = $request->role; 
+        $player->team_id = $request->clubname;
         
         $player->save(); // store_anchor
         return redirect()->route("player.index")->with('message', "Successful storage !");

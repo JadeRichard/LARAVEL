@@ -47,19 +47,43 @@
                             <input type='text' name='email'>
                         </td>
                         <td>
-                            <input type='text' name='gender'>
+                            <select name="gender">
+                                <option value="">--GENDER--</option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                                <option value="NB">NB</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            
                         </td>
                         <td>
-                            
                             <input type='text' name='country'>
                         </td>
                         <td>
+                            <select name="role">
+                                <option value="">--ROLE--</option>
+                                <option value="1">Front</option>
+                                <option value="2">Middle</option>
+                                <option value="3">Back</option>
+                                <option value="4">Substitute</option>
+                            </select>
                             
-                            <input type='text' name='role'>
                         </td>
                         <td>
+                            <select name="clubname">
+                                <option value="">--TEAM--</option>
+                                @php
+                                    $i = 0
+                                @endphp
+                                @foreach ($teams as $item)
+                                    
+                                <option value="{{ $i }}"> {{ $item->clubname }}</option>
+                                @php
+                                ++$i
+                            @endphp
+                                @endforeach
+                            </select>
                             
-                            <input type='text' name='clubname'>
                         </td>
 
                     </tr>
