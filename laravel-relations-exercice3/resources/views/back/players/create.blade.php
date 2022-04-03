@@ -3,15 +3,25 @@
     @include('front.partials.navbar')
     <div class='container'>
         <h1>Players</h1>
-        @if ($errors->any())
-            <div class='alert alert-danger'>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @if (session()->has('message'))
+        <div class='alert alert-success'>
+            {{ session()->get('message') }}
+        </div>
+    @endif
+    @if (session()->has('error'))
+        <div class='alert alert-danger'>
+            {{ session()->get('error') }}
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class='alert alert-danger'>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <form action='{{ route('player.store') }}' method='post'>
             @csrf
             <table class='table'>
@@ -60,27 +70,17 @@
                             <input type='text' name='country'>
                         </td>
                         <td>
-                            <select name="role">
-                                <option value="">--ROLE--</option>
-                                <option value="1">Front</option>
-                                <option value="2">Middle</option>
-                                <option value="3">Back</option>
-                                <option value="4">Substitute</option>
+                            <select name="role_id">
+                                @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
                             </select>
                             
                         </td>
                         <td>
-                            <select name="clubname">
-                                <option value="">--TEAM--</option>
-                                @php
-                                    $i = 1
-                                @endphp
-                                @foreach ($teams as $item)
-                                    
-                                <option value="{{ $i }}"> {{ $item->clubname }}</option>
-                                @php
-                                ++$i
-                            @endphp
+                            <select name="team_id">
+                                @foreach ($teams as $team)
+                                <option value="{{ $team->id }}">{{ $team->clubname }}</option>
                                 @endforeach
                             </select>
                             

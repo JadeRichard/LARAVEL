@@ -18,12 +18,14 @@ class PlayerController extends Controller
     }
     public function create()
     {
+        $roles = Role::all();
         $teams = Team::all();
-        return view("/back/players/create", compact('teams'));
+        return view("/back/players/create", compact('teams', 'roles'));
     }
     public function store(Request $request)
     {
-        
+        $team = Team::find($request->team_id);
+        $role = Role::find($request->role_id);
         $player = new Player;
         $request->validate([
          'name'=> 'required',
@@ -33,7 +35,6 @@ class PlayerController extends Controller
          'email'=> 'required',
          'gender'=> 'required',
          'country'=> 'required',
-         'clubname'=> 'required',
         ]); // store_validated_anchor;
         $player->name = $request->name;
         $player->firstname = $request->firstname;
@@ -42,14 +43,21 @@ class PlayerController extends Controller
         $player->email = $request->email;
         $player->gender = $request->gender;
         $player->country = $request->country;
-        $player->role_id = $request->role; 
-        $player->team_id = $request->clubname;
+        $player->role_id = $request->role_id; 
+        $player->team_id = $request->team_id;
         
-        $player->save(); // store_anchor
+
+        if ($team->players->where("role_id", '=', $request->role_id)->count() >= $team->maxrole) {
+            
+            return redirect()->route("player.create")->with('error', "Can't add more players in that role. ");
+        } else {
+            
+            $player->save(); // store_anchor
+            $team->save(); // store_anchor
+            return redirect()->route("player.index")->with('message', "Successful storage !");
+        }
 
         
-        
-        return redirect()->route("player.index")->with('message', "Successful storage !");
     }
     public function read($id)
     {
@@ -58,8 +66,10 @@ class PlayerController extends Controller
     }
     public function edit($id)
     {
+        $teams = Team::all();
         $player = Player::find($id);
-        return view("/back/players/edit",compact("player"));
+        $roles = Role::all();
+        return view("/back/players/edit",compact("player", "teams", "roles"));
     }
     public function destroy($id){
         $player = Player::find($id);
@@ -68,25 +78,36 @@ class PlayerController extends Controller
     }
     public function update($id, Request $request)
     {
+        $team = Team::find($request->team_id);
         $player = Player::find($id);
         $request->validate([
-            'name'=> 'required',
-            'firstname'=> 'required',
-            'age'=> 'required',
-            'telnumber'=> 'required',
-            'email'=> 'required',
-            'gender'=> 'required',
-            'country'=> 'required',
-           ]); // store_validated_anchor;
-           $player->name = $request->name;
-           $player->firstname = $request->firstname;
-           $player->age = $request->age;
-           $player->telnumber = $request->telnumber;
-           $player->email = $request->email;
-           $player->gender = $request->gender;
-           $player->country = $request->country;
-           $player->telephone = $request->telephone;
-        $player->save(); // update_anchor
-        return redirect()->route("player.index")->with('message', "Successful update !");
+         'name'=> 'required',
+         'firstname'=> 'required',
+         'age'=> 'required',
+         'telnumber'=> 'required',
+         'email'=> 'required',
+         'gender'=> 'required',
+         'country'=> 'required',
+        ]); // store_validated_anchor;
+        $player->name = $request->name;
+        $player->firstname = $request->firstname;
+        $player->age = $request->age;
+        $player->telnumber = $request->telnumber;
+        $player->email = $request->email;
+        $player->gender = $request->gender;
+        $player->country = $request->country;
+        $player->role_id = $request->role_id; 
+        $player->team_id = $request->team_id;
+        
+
+        if ($team->players->where("role_id", '=', $request->role_id)->count() >= $team->maxrole) {
+            
+            return redirect()->route("player.create")->with('error', "Can't add more players in that role. ");
+        } else {
+            
+            $player->save(); // store_anchor
+            $team->save(); // store_anchor
+            return redirect()->route("player.index")->with('message', "Successful update !");
+        }
     }
 }

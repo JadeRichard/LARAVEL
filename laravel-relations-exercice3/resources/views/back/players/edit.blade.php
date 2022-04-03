@@ -32,22 +32,22 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input type='text' name='name'>
+                            <input type='text' name='name' value='{{ $player->name }}'>
                         </td>
                         <td>
-                            <input type='text' name='firstname'>
+                            <input type='text' name='firstname' value='{{ $player->firstname }}'>
                         </td>
                         <td>
-                            <input type='number' name='age'>
+                            <input type='number' name='age' value='{{ $player->age }}'>
                         </td>
                         <td>
-                            <input type='text' name='telnumber'>
+                            <input type='text' name='telnumber' value='{{ $player->telnumber }}'>
                         </td>
                         <td>
-                            <input type='text' name='email'>
+                            <input type='text' name='email' value='{{ $player->name }}'>
                         </td>
                         <td>
-                            <select name="gender">
+                            <select name="gender" value='{{ $player->gender }}'>
                                 <option value="">--GENDER--</option>
                                 <option value="M">M</option>
                                 <option value="F">F</option>
@@ -57,30 +57,20 @@
                             
                         </td>
                         <td>
-                            <input type='text' name='country'>
+                            <input type='text' name='country' value='{{ $player->country }}'>
                         </td>
                         <td>
-                            <select name="role">
-                                <option value="">--ROLE--</option>
-                                <option value="1">Front</option>
-                                <option value="2">Middle</option>
-                                <option value="3">Back</option>
-                                <option value="4">Substitute</option>
+                            <select name="role_id">
+                                @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
                             </select>
                             
                         </td>
                         <td>
-                            <select name="clubname">
-                                <option value="">--TEAM--</option>
-                                @php
-                                    $i = 0
-                                @endphp
-                                @foreach ($teams as $item)
-                                    
-                                <option value="{{ $i }}"> {{ $item->clubname }}</option>
-                                @php
-                                ++$i
-                            @endphp
+                            <select name="team_id">
+                                @foreach ($teams as $team)
+                                <option value="{{ $team->id }}">{{ $team->clubname }}</option>
                                 @endforeach
                             </select>
                             
