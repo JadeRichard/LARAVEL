@@ -63,4 +63,10 @@
             </tbody>
         </table>
     </div>
+
+
+    <div class="container">
+        
+    {{ $players->links() }}
+    </div>
 @endsection

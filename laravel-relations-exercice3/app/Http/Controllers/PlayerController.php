@@ -12,7 +12,7 @@ class PlayerController extends Controller
     //
     public function index()
     {
-        $players = Player::all();
+        $players = Player::paginate(10);
         $role = Role::all();
         return view("/back/players/all",compact("players", "role"));
     }
@@ -100,7 +100,7 @@ class PlayerController extends Controller
         $player->team_id = $request->team_id;
         
 
-        if ($team->players->where("role_id", '=', $request->role_id)->count() >= $team->maxrole) {
+        if ($team->players->where("role_id", '=', $request->role_id)->count() > $team->maxrole) {
             
             return redirect()->route("player.create")->with('error', "Can't add more players in that role. ");
         } else {
