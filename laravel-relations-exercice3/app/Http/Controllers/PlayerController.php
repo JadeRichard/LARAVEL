@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
 use App\Models\Role;
 use App\Models\Player;
 use App\Models\Team;
@@ -45,6 +46,12 @@ class PlayerController extends Controller
         $player->country = $request->country;
         $player->role_id = $request->role_id; 
         $player->team_id = $request->team_id;
+        $photo = new Photo();
+        $photo->img = $request->file("img")->hashName();
+        $photo->player_id = $player->id;
+        $photo->save();
+
+        $request->file("img")->storePublicly("img", "public");
         
 
         if ($team->players->where("role_id", '=', $request->role_id)->count() >= $team->maxrole) {

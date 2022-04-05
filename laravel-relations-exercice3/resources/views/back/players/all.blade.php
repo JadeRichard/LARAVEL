@@ -67,6 +67,6 @@
 
     <div class="container">
         
-    {{ $players->links() }}
+    {{ $players->links("pagination::bootstrap-4") }}
     </div>
 @endsection
