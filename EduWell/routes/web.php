@@ -34,6 +34,8 @@ Route::get('/', function () {
     return view('welcome', compact("banners", "maps", "services", "testimonials", "users","titles"));
 });
 
+Route::get("/mail", "\App\Http\Controllers\MailController@sendMail")->name("mail");
+
 Route::get('/dashboard', function () {
     $users = User::all();
     return view('dashboard', compact("users"));

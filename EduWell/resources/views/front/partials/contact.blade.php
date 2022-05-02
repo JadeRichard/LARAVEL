@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <form id="contact" action="" method="post">
+          <form id="contact" action='{{ route('mail') }}' method="get">
             <div class="row">
               <div class="col-lg-12">
                 <div class="section-heading">
@@ -50,13 +50,15 @@
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                  <textarea name="message" id="message" placeholder="Your Message" ></textarea>
                 </fieldset>
               </div>
               <div class="col-lg-12">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="main-gradient-button">Send Message</button>
-                </fieldset>
+                <fieldset >
+                    
+                    <button type="submit" id="form-submit" class="main-gradient-button">Send Message</button>
+                
+                  </fieldset>
               </div>
             </div>
           </form>
