@@ -21,4 +21,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+Route::get("/mail", "\App\Http\Controllers\MailController@sendMail")->name("mail");
+
+
 require __DIR__.'/auth.php';
