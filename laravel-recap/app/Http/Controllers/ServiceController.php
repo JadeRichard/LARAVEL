@@ -10,13 +10,13 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::all();
-        return view('service.index', compact('services'));
+        return view('/back/services/all', compact('services'));
     }
 
     public function create()
     {
         $services = Service::all();
-        return view('service.create', compact('services'));
+        return view('/back/services/create', compact('services'));
     }
 
     public function store(Request $request)
@@ -36,14 +36,14 @@ class ServiceController extends Controller
         $service->icon = $request->icon;
         $service->updated_at = now();
         $service->save();
-        return redirect()->route('service.index')->with('message', 'Element service created');
+        return redirect()->route('services.index')->with('message', 'Element service created');
     
     }
 
     public function edit($id)
     {
         $services = Service::find($id);
-        return view('service.edit', compact('services'));
+        return view('/back/services/edit', compact('services'));
     }
 
     public function update(Request $request, $id)
@@ -63,7 +63,7 @@ class ServiceController extends Controller
         $service->icon = $request->icon;
         $service->updated_at = now();
         $service->save();
-        return redirect()->route('service.index')->with('message', 'Element service updated');
+        return redirect()->route('services.index')->with('message', 'Element service updated');
 
     }
 
@@ -71,6 +71,12 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         $service->delete();
-        return redirect()->route('service.index')->with('message', 'Element service deleted');
+        return redirect()->route('services.index')->with('message', 'Element service deleted');
+    }
+
+    public function show($id)
+    {
+        $service = Service::find($id);
+        return view('/back/services/show', compact('service'));
     }
 }

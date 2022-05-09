@@ -10,14 +10,20 @@ class BannerController extends Controller
     public function index()
     {
         $banners = Banner::all();
-        return view('banner.index', compact('banners'));
+        return view('/back/banners/all', compact('banners'));
     }
 
 
     public function edit($id)
     {
         $banners = Banner::find($id);
-        return view('banner.edit', compact('banners'));
+        return view('/back/banners/edit', compact('banners'));
+    }
+
+    public function show($id)
+    {
+        $banners = Banner::find($id);
+        return view('/back/banners/show', compact('banners'));
     }
 
     public function update(Request $request, $id)
@@ -43,7 +49,7 @@ class BannerController extends Controller
         $banner->button_2_icon = $request->button_2_icon;
         $banner->updated_at = now();
         $banner->save();
-        return redirect()->route('banner.index')->with('message', 'Element banner updated');
+        return redirect()->route('banners.index')->with('message', 'Element banner updated');
 
     }
 

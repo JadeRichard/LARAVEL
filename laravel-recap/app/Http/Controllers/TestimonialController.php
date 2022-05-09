@@ -4,19 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class TestimonialController extends Controller
 {
     public function index()
     {
         $testimonials = Testimonial::all();
-        return view('testimonial.index', compact('testimonials'));
+        return view('/back/testimonials/all', compact('testimonials'));
     }
 
     public function create()
     {
         $testimonials = Testimonial::all();
-        return view('testimonial.create', compact('testimonials'));
+        return view('/back/testimonials/create', compact('testimonials'));
     }
 
     public function store(Request $request)
@@ -40,14 +41,14 @@ class TestimonialController extends Controller
         $testimonial->photo = $request->photo;
         $testimonial->updated_at = now();
         $testimonial->save();
-        return redirect()->route('testimonial.index')->with('message', 'Element testimonial created');
+        return redirect()->route('testimonials.index')->with('message', 'Element testimonial created');
     
     }
 
     public function edit($id)
     {
         $testimonials = Testimonial::find($id);
-        return view('testimonial.edit', compact('testimonials'));
+        return view('/back/testimonials/edit', compact('testimonials'));
     }
 
     public function update(Request $request, $id)
@@ -68,10 +69,15 @@ class TestimonialController extends Controller
         $testimonial->designation = $request->designation;
         $testimonial->category = $request->category;
         $testimonial->description = $request->description;
+        File::delete("images/". $testimonial->photo);
+        $testimonial->photo = $request->file("photo")->hashName();
+        $request->file('photo')->storePublicly('images/', 'public');
+        $testimonial->save();
+
         $testimonial->photo = $request->photo;
         $testimonial->updated_at = now();
         $testimonial->save();
-        return redirect()->route('testimonial.index')->with('message', 'Element testimonial updated');
+        return redirect()->route('testimonials.index')->with('message', 'Element testimonial updated');
 
     }
 
@@ -79,6 +85,12 @@ class TestimonialController extends Controller
     {
         $testimonial = Testimonial::find($id);
         $testimonial->delete();
-        return redirect()->route('testimonial.index')->with('message', 'Element testimonial deleted');
+        return redirect()->back()->with('message', 'Element testimonial deleted');
+    }
+
+    public function show($id)
+    {
+        $testimonial = Testimonial::find($id);
+        return view('/back/testimonials/show', compact('testimonial'));
     }
 }

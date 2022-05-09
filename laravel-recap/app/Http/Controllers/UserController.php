@@ -10,13 +10,13 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('user.index', compact('users'));
+        return view('/back/users/all', compact('users'));
     }
 
     public function create()
     {
         $users = User::all();
-        return view('user.create', compact('users'));
+        return view('/back/users/create', compact('users'));
     }
 
     public function store(Request $request)
@@ -32,14 +32,14 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->updated_at = now();
         $user->save();
-        return redirect()->route('user.index')->with('message', 'Element user created');
+        return redirect()->route('users.index')->with('message', 'Element user created');
     
     }
 
     public function edit($id)
     {
         $users = User::find($id);
-        return view('user.edit', compact('users'));
+        return view('/back/users/edit', compact('users'));
     }
 
     public function update(Request $request, $id)
@@ -55,7 +55,7 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->updated_at = now();
         $user->save();
-        return redirect()->route('user.index')->with('message', 'Element user updated');
+        return redirect()->route('users.index')->with('message', 'Element user updated');
 
     }
 
@@ -63,6 +63,12 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('user.index')->with('message', 'Element user deleted');
+        return redirect()->back()->with('message', 'Element user deleted');
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('/back/users/show', compact('user'));
     }
 }

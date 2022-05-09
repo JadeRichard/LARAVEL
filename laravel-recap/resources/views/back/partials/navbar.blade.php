@@ -40,13 +40,6 @@
        <span class="tooltip">Services</span>
      </li>
      <li>
-       <a href="{{ route('abouts.index') }}">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">About</span>
-       </a>
-       <span class="tooltip">About</span>
-     </li>
-     <li>
        <a href="{{ route('testimonials.index') }}">
          <i class='bx bx-cart-alt' ></i>
          <span class="links_name">Testimonials</span>
