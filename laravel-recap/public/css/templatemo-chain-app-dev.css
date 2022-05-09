@@ -1049,7 +1049,6 @@ Services Style
 }
 
 .first-service .icon {
-  background-image: url(../images/service-icon-01.png);
   width: 50px;
 }
 
@@ -1059,7 +1058,6 @@ Services Style
 
 .second-service .icon {
   width: 50px;
-  background-image: url(../images/service-icon-02.png);
 }
 
 .second-service:hover .icon {
@@ -1069,7 +1067,6 @@ Services Style
 
 .third-service .icon {
   width: 50px;
-  background-image: url(../images/service-icon-03.png);
 }
 
 .third-service:hover .icon {
@@ -1078,7 +1075,6 @@ Services Style
 
 .fourth-service .icon {
   width: 50px;
-  background-image: url(../images/service-icon-04.png);
 }
 
 .fourth-service:hover .icon {
