@@ -1050,6 +1050,7 @@ Services Style
 
 .first-service .icon {
   background-image: url(../images/service-icon-01.png);
+  width: 50px;
 }
 
 .first-service:hover .icon {
@@ -1057,6 +1058,7 @@ Services Style
 }
 
 .second-service .icon {
+  width: 50px;
   background-image: url(../images/service-icon-02.png);
 }
 
@@ -1066,6 +1068,7 @@ Services Style
 
 
 .third-service .icon {
+  width: 50px;
   background-image: url(../images/service-icon-03.png);
 }
 
@@ -1074,6 +1077,7 @@ Services Style
 }
 
 .fourth-service .icon {
+  width: 50px;
   background-image: url(../images/service-icon-04.png);
 }
 

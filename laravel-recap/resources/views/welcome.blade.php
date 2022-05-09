@@ -12,8 +12,8 @@
 
     @include('front.partials.about')
 
-    @include('front.partials.clients')
+    @include('front.partials.testimonials')
 
     @include('front.partials.footer')
-    
+
 @endsection
