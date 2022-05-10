@@ -5,34 +5,11 @@
     </div>
 
     <section class="popupBody">
-        <!-- Social Login -->
-        <div class="social_login">
-            <div class="">
-                <a href="#" class="social_box fb">
-                    <span class="icon"><i class="fab fa-facebook"></i></span>
-                    <span class="icon_title">Connect with Facebook</span>
-
-                </a>
-
-                <a href="#" class="social_box google">
-                    <span class="icon"><i class="fab fa-google-plus"></i></span>
-                    <span class="icon_title">Connect with Google</span>
-                </a>
-            </div>
-
-            <div class="centeredText">
-                <span>Or use your Email address</span>
-            </div>
-
-            <div class="action_btns">
-                <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-                <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-            </div>
-        </div>
-
+    
         <!-- Username & Password Login form -->
         <div class="user_login">
-            <form>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
                 <label>Email / Username</label>
                 <input type="text" />
                 <br />
@@ -55,7 +32,7 @@
             <a href="#" class="forgot_password">Forgot password?</a>
         </div>
 
-        <!-- Register Form -->
+        {{-- <!-- Register Form -->
         <div class="user_register">
             <form>
                 <label>Full Name</label>
@@ -80,6 +57,6 @@
                     <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
                 </div>
             </form>
-        </div>
+        </div> --}}
     </section>
 </div>

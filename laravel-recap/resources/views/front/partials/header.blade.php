@@ -19,7 +19,7 @@
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
-              <img src="{{ asset("images/logo.png") }}" alt="Chain App Dev">
+              <img src="{{ asset("images/" . $images[0]->image) }}" alt="Chain App Dev">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
@@ -29,11 +29,17 @@
               <li class="scroll-to-section"><a href="#about">About</a></li>
               <li class="scroll-to-section"><a href="#pricing">Pricing</a></li>
               <li class="scroll-to-section"><a href="#newsletter">Newsletter</a></li>
-              <li><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In Now</a></div></li> 
+              
+                @if (Route::has('login'))
+                            @auth
+                                <li class="scroll-to-section"><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                            @else                        
+                                <li class="scroll-to-section"><a href="{{ route('login') }}">Login</a></li>
+                            @endauth
+                @endif 
+                    
             </ul>        
-            <a class='menu-trigger'>
-                <span>Menu</span>
-            </a>
+            
             <!-- ***** Menu End ***** -->
           </nav>
         </div>

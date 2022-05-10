@@ -43,7 +43,7 @@
         </div>
         <div class="col-lg-6">
           <div class="right-image">
-            <img src="{{ asset("images/about-right-dec.png") }}" alt="">
+            <img src="{{ asset("images/" . $images[2]->image) }}" alt="">
           </div>
         </div>
       </div>

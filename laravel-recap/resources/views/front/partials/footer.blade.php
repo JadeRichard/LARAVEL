@@ -7,11 +7,11 @@
           </div>
         </div>
         <div class="col-lg-6 offset-lg-3">
-          <form id="search" action="#" method="GET">
+          <form id="search" action='{{ route('newsletter.subscribe') }}' method="GET">
             <div class="row">
               <div class="col-lg-6 col-sm-6">
                 <fieldset>
-                  <input type="address" name="address" class="email" placeholder="Email Address..." autocomplete="on" required>
+                  <input type="address" name="email" class="email" placeholder="Email Address..." autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-6 col-sm-6">
@@ -70,7 +70,7 @@
           <div class="footer-widget">
             <h4>About Our Company</h4>
             <div class="logo">
-              <img src="{{ asset("images/white-logo.png") }}" alt="">
+              <img src="{{ asset("images/" . $images[3]->image) }}" alt="">
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
           </div>

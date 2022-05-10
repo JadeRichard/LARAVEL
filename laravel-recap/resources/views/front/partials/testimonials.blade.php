@@ -45,29 +45,54 @@
                             <div class="col-lg-5">
                                 <ul class="nacc">
                                     <li class="active">
-                                        @foreach ($testimonials as $item)
                                         <div>
-                                          <div class="thumb">
-                                              <div class="row">
-                                                  <div class="col-lg-12">
-                                                      <div class="client-content">
-                                                          <img src="{{ asset('images/quote.png') }}" alt="">
-                                                          <p>“{{ $item->description }}”</p>
-                                                      </div>
-                                                      <div class="down-content">
-                                                        <img src="{{ asset("images/" . $item->photo) }}" alt="">
-                                                          <div class="right-content">
-                                                              <h4>{{ $item->name }}</h4>
-                                                              <span>{{ $item->designation }}</span>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                        @endforeach
+                                            <div class="thumb">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="client-content">
+                                                            <img src="{{ asset('images/quote.png') }}" alt="">
+                                                            <p>“{{ $testimonials[0]->description }}”</p>
+                                                        </div>
+                                                        <div class="down-content">
+                                                            <img src="{{ asset('images/' . $testimonials[0]->photo) }}"
+                                                                alt="">
+                                                            <div class="right-content">
+                                                                <h4>{{ $testimonials[0]->name }}</h4>
+                                                                <span>{{ $testimonials[0]->designation }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </li>
-                                    
+                                    @foreach ($testimonials as $item)
+                                        @if ($loop->first <= 0)
+                                            <li onmousedown='class="active"'>
+                                                <div>
+                                                    <div class="thumb">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="client-content">
+                                                                    <img src="{{ asset('images/quote.png') }}"
+                                                                        alt="">
+                                                                    <p>“{{ $item->description }}”</p>
+                                                                </div>
+                                                                <div class="down-content">
+                                                                    <img src="{{ asset('images/' . $item->photo) }}"
+                                                                        alt="">
+                                                                    <div class="right-content">
+                                                                        <h4>{{ $item->name }}</h4>
+                                                                        <span>{{ $item->designation }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
