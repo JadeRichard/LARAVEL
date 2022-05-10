@@ -21,7 +21,7 @@
                         <td>{{ $users->password }}</td>
 
                     <td> 
-                        <td><a type="submit" class="btn btncus2" href="{{ route('users.index') }}">Back</button></td>
+                        <td><a type="submit" class="btn btncus2" href="{{ route('users.index') }}"  style="background-color: #429db6; color: white;">Back</button></td>
                     </td>
                 </tr>
             </tbody>

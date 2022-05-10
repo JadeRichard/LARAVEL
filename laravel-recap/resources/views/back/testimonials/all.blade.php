@@ -20,6 +20,10 @@
             </div>
         @endif
 
+        @can('create', App\Testimonial::class)
+        <a href="{{ route('testimonials.create') }}" class="btn btncus mb-5" style="background-color: #429db6; color: white;">Create</a>
+        @endcan
+
         <table class='table'>
             <thead>
                 <tr>
@@ -31,6 +35,7 @@
                     <th scope='col'style="text-align: center;">Category</th>
                     <th scope='col'style="text-align: center;">Description</th>
                     <th scope='col'style="text-align: center;">Photo</th>
+                    <th scope='col'style="text-align: center;">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,14 +49,23 @@
                         <td style="text-align: center;">{{ $item->category }}</td>
                         <td style="text-align: center;">{{ $item->description }}</td>
                         <td style="text-align: center;"> 
-                            <div class='d-flex justify-content-center'>
-                                <img src='{{ asset("storage/$item->photo") }}' width='100px' height='100px' alt='{{ $item->name }}' class='img-fluid'>
+                            <div class='d-flex'>
+                                <img src='{{ asset("images/". $item->photo) }}' width='100px' height='100px' alt='{{ $item->name }}' class='img-fluid'>
                             </div>
                         </td>
                         <td style="text-align: center;"> 
                             <div class='d-flex justify-content-center'>
+                                @can('update', $item)
                                 <a class='btn btncus3 mx-2' style="background-color: #429db6; color: white;" href='{{ route('testimonials.edit', $item->id) }}' role='button'>Edit</a>
+                                @endcan
                                 <a class='btn btncus3 mx-2' style="background-color: #429db6; color: white;" href='{{ route('testimonials.show', $item->id) }}' role='button'>Read</a>
+                                @can('delete', $item)
+                                <form action="{{ route('testimonials.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method("DELETE")
+                                    <button class="btn btncus2" style="background-color: #429db6; color: white;" >Delete</button>
+                                </form>
+                                @endcan
                             </div>
                         </td>
                     </tr>

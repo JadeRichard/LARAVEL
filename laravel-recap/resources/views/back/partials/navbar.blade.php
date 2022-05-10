@@ -59,7 +59,14 @@
            <!--<img src="profile.jpg" alt="profileImg">-->
            
          </div>
-         <i class='bx bx-log-out' id="log_out" ></i>
+         <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <div :href="route('logout')"
+              style="cursor: pointer"
+              onclick="event.preventDefault();
+                          this.closest('form').submit();">
+              {{ __('Log Out') }}
+      </form>
      </li>
     </ul>
   </div>

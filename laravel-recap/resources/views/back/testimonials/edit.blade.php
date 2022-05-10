@@ -1,13 +1,12 @@
 @extends('back.layouts.app')
 @section('content')
 @include('back.partials.navbar')
-    <div class='container'>
-        <h1>Testimonials</h1>
+    <div class='container'  style="margin-left: 20px;">
         @if ($errors->any())
-            <div class='alert alert-danger'>
+            <div class='alert alert-danger' style="width: 100vw;">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li style="text-align: center;">{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
@@ -41,7 +40,7 @@
                             <td style="text-align: center;"> <input type="text" name="description" value="{{ $testimonials->description }}"></td>
                             <td style="text-align: center;"> <input type="file" name="photo" value="{{ $testimonials->photo }}"></td>
                             
-                            <td style="text-align: center;"><button class="btn btncus2" type='submit'>Update</button> {{-- update_blade_anchor --}}</td>
+                            <td style="text-align: center;"><button class="btn btncus2" type='submit'  style="background-color: #429db6; color: white;">Update</button> {{-- update_blade_anchor --}}</td>
                         </form>
                 </tr>
             </tbody>

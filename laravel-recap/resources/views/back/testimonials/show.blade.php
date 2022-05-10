@@ -20,18 +20,18 @@
                 <tr>
                     <th scope='row'>{{ $testimonials->id }}</th>
                     
-                        <td>{{ $testimonials->name }}</td>
-                        <td>{{ $testimonials->date }}</td>
-                        <td>{{ $testimonials->rating }}</td>
-                        <td>{{ $testimonials->designation }}</td>
-                        <td>{{ $testimonials->category }}</td>
-                        <td>{{ $testimonials->description }}</td>
-                        <td>
-                            <img src="{{ asset('storage/testimonials/'.$testimonials->photo) }}" alt="{{ $testimonials->name }}" width="100px">
+                        <td style="text-align: center;" >{{ $testimonials->name }}</ style="text-align: center;" >
+                        <td style="text-align: center;" >{{ $testimonials->date }}</td>
+                        <td style="text-align: center;" >{{ $testimonials->rating }}</td>
+                        <td style="text-align: center;" >{{ $testimonials->designation }}</td>
+                        <td style="text-align: center;" >{{ $testimonials->category }}</td>
+                        <td style="text-align: center;" >{{ $testimonials->description }}</td>
+                        <td style="text-align: center;" >
+                            <img src="{{ asset('images/'.$testimonials->photo) }}" alt="{{ $testimonials->name }}" width="100px">
                         </td>
                         
                     <td> 
-                        <td><a type="submit" class="btn btncus2" href="{{ route('testimonials.index') }}">Back</button></td>
+                        <td><a type="submit" class="btn btncus2" href="{{ route('testimonials.index') }}"  style="background-color: #429db6; color: white;">Back</button></td>
                     </td>
                 </tr>
             </tbody>

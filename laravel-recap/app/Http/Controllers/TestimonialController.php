@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\File;
 
 class TestimonialController extends Controller
 {
+    
+
     public function index()
     {
         $testimonials = Testimonial::all();
@@ -17,12 +19,17 @@ class TestimonialController extends Controller
     public function create()
     {
         $testimonials = Testimonial::all();
-        return view('/back/testimonials/create', compact('testimonials'));
+        if (count($testimonials) >= 5) {
+            return redirect()->back()->with('message', 'Cannot create more than five elements');
+        } else {
+            return view('/back/testimonials/create', compact('testimonials'));
+        }
+       
     }
 
     public function store(Request $request)
     {
-        $testimonial = new Testimonial();
+        $testimonials = new Testimonial();
         $request->validate([
             'name' => 'required',
             'date' => 'required',
@@ -32,15 +39,17 @@ class TestimonialController extends Controller
             'description' => 'required',
             'photo' => 'required',
         ]);
-        $testimonial->name = $request->name;
-        $testimonial->date = $request->date;
-        $testimonial->rating = $request->rating;
-        $testimonial->designation = $request->designation;
-        $testimonial->category = $request->category;
-        $testimonial->description = $request->description;
-        $testimonial->photo = $request->photo;
-        $testimonial->updated_at = now();
-        $testimonial->save();
+        $testimonials->name = $request->name;
+        $testimonials->date = $request->date;
+        $testimonials->rating = $request->rating;
+        $testimonials->designation = $request->designation;
+        $testimonials->category = $request->category;
+        $testimonials->description = $request->description;
+        $testimonials->photo = $request->photo;
+        $testimonials->updated_at = now();
+        $testimonials->photo = $request->file("photo")->hashName();
+        $request->file('photo')->storePublicly('images/', 'public');
+        $testimonials->save();
         return redirect()->route('testimonials.index')->with('message', 'Element testimonial created');
     
     }
@@ -53,7 +62,7 @@ class TestimonialController extends Controller
 
     public function update(Request $request, $id)
     {
-        $testimonial = Testimonial::find($id);
+        $testimonials = Testimonial::find($id);
         $request->validate([
             'name' => 'required',
             'date' => 'required',
@@ -63,34 +72,36 @@ class TestimonialController extends Controller
             'description' => 'required',
             'photo' => 'required',
         ]);
-        $testimonial->name = $request->name;
-        $testimonial->date = $request->date;
-        $testimonial->rating = $request->rating;
-        $testimonial->designation = $request->designation;
-        $testimonial->category = $request->category;
-        $testimonial->description = $request->description;
-        File::delete("images/". $testimonial->photo);
-        $testimonial->photo = $request->file("photo")->hashName();
+        $testimonials->name = $request->name;
+        $testimonials->date = $request->date;
+        $testimonials->rating = $request->rating;
+        $testimonials->designation = $request->designation;
+        $testimonials->category = $request->category;
+        $testimonials->description = $request->description;
+        $testimonials->photo = $request->photo;
+        $testimonials->updated_at = now();
+        $testimonials->photo = $request->file("photo")->hashName();
         $request->file('photo')->storePublicly('images/', 'public');
-        $testimonial->save();
-
-        $testimonial->photo = $request->photo;
-        $testimonial->updated_at = now();
-        $testimonial->save();
+        $testimonials->save();
         return redirect()->route('testimonials.index')->with('message', 'Element testimonial updated');
 
     }
 
     public function destroy($id)
     {
-        $testimonial = Testimonial::find($id);
-        $testimonial->delete();
-        return redirect()->back()->with('message', 'Element testimonial deleted');
+        $testimonialarray = Testimonial::all();
+        $testimonials = Testimonial::find($id);
+        if (count($testimonialarray) > 1) {
+            $testimonials->delete();
+            return redirect()->back()->with('message', 'Element testimonial destroyed');
+        } else {      
+            return redirect()->back()->with('message', 'Cannot delete all elements');
+        }
     }
 
     public function show($id)
     {
-        $testimonial = Testimonial::find($id);
-        return view('/back/testimonials/show', compact('testimonial'));
+        $testimonials = Testimonial::find($id);
+        return view('/back/testimonials/show', compact('testimonials'));
     }
 }

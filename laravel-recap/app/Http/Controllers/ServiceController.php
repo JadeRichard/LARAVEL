@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+
     public function index()
     {
         $services = Service::all();
@@ -16,12 +17,17 @@ class ServiceController extends Controller
     public function create()
     {
         $services = Service::all();
-        return view('/back/services/create', compact('services'));
+        if (count($services) >= 4) {
+            return redirect()->back()->with('message', 'Cannot create more than five elements');
+        } else {
+            return view('/back/services/create', compact('services'));
+        }
+        
     }
 
     public function store(Request $request)
     {
-        $service = new Service();
+        $services = new Service();
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -29,13 +35,13 @@ class ServiceController extends Controller
             'button_link' => 'required',
             'icon' => 'required',
         ]);
-        $service->title = $request->title;
-        $service->description = $request->description;
-        $service->button_text = $request->button_text;
-        $service->button_link = $request->button_link;
-        $service->icon = $request->icon;
-        $service->updated_at = now();
-        $service->save();
+        $services->title = $request->title;
+        $services->description = $request->description;
+        $services->button_text = $request->button_text;
+        $services->button_link = $request->button_link;
+        $services->icon = $request->icon;
+        $services->updated_at = now();
+        $services->save();
         return redirect()->route('services.index')->with('message', 'Element service created');
     
     }
@@ -48,7 +54,7 @@ class ServiceController extends Controller
 
     public function update(Request $request, $id)
     {
-        $service = Service::find($id);
+        $services = Service::find($id);
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -56,27 +62,34 @@ class ServiceController extends Controller
             'button_link' => 'required',
             'icon' => 'required',
         ]);
-        $service->title = $request->title;
-        $service->description = $request->description;
-        $service->button_text = $request->button_text;
-        $service->button_link = $request->button_link;
-        $service->icon = $request->icon;
-        $service->updated_at = now();
-        $service->save();
+        $services->title = $request->title;
+        $services->description = $request->description;
+        $services->button_text = $request->button_text;
+        $services->button_link = $request->button_link;
+        $services->icon = $request->icon;
+        $services->updated_at = now();
+        $services->save();
         return redirect()->route('services.index')->with('message', 'Element service updated');
 
     }
 
     public function destroy($id)
     {
-        $service = Service::find($id);
-        $service->delete();
-        return redirect()->route('services.index')->with('message', 'Element service deleted');
+        $servicesarray = Service::all();
+        $services = Service::find($id);
+        
+        if (count($servicesarray) > 1) {
+            $services->delete();
+            return redirect()->back()->with('message', 'Element service deleted');
+        } else {      
+            return redirect()->back()->with('message', 'Cannot delete all elements');
+        }
+        
     }
 
     public function show($id)
     {
-        $service = Service::find($id);
-        return view('/back/services/show', compact('service'));
+        $services = Service::find($id);
+        return view('/back/services/show', compact('services'));
     }
 }

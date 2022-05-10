@@ -20,10 +20,10 @@ class BannerSeeder extends Seeder
             "description" => "Chain App Dev is an app landing page HTML5 template based on Bootstrap v5.1.3 CSS layout provided by TemplateMo, a great website to download free CSS templates.",
             "button_1_text" => "Free Quote",
             "button_1_link" => "#contact",
-            "button_1_icon" => "fab fa-apple",
+            "button_1_icon" => "<i class='fab fa-apple'></i>",
             "button_2_text" => "Free Quote",
             "button_2_link" => "#contact",
-            "button_2_icon" => "fab fa-google-play",
+            "button_2_icon" => "<i class='fab fa-google-play'></i>",
         ]);
     }
 }

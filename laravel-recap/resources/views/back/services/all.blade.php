@@ -20,8 +20,10 @@
             </div>
         @endif
 
-        <a href="{{ route('services.create') }}" class="btn btncus">Create</a>
-
+        @can('create', App\Models\Service::class)
+        <a href="{{ route('services.create') }}" class="btn btncus mb-5" style="background-color: #429db6; color: white;" >Create</a>
+        @endcan
+        
         <table class='table'>
             <thead>
                 <tr>
@@ -42,11 +44,20 @@
                         <td style="text-align: center;">{{ $item->description }}</td>
                         <td style="text-align: center;">{{ $item->button_text }}</td>
                         <td style="text-align: center;">{{ $item->button_link }}</td>
-                        <td style="text-align: center;">{{ $item->icon }}</td>
+                        <td style="text-align: center;"><img src="{{ "/images/" . $item->icon }}" alt=""></td>
                         <td style="text-align: center;"> 
                             <div class='d-flex justify-content-center'>
+                                @can('update', $item)
                                 <a class='btn btncus3 mx-2' style="background-color: #429db6; color: white;" href='{{ route('services.edit', $item->id) }}' role='button'>Edit</a>
+                                @endcan
                                 <a class='btn btncus3 mx-2' style="background-color: #429db6; color: white;" href='{{ route('services.show', $item->id) }}' role='button'>Read</a>
+                                @can('delete', $item)
+                                <form action="{{ route('services.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method("DELETE")
+                                    <button class="btn btncus2" style="background-color: #429db6; color: white;" >Delete</button>
+                                </form>
+                                @endcan
                             </div>
                         </td>
                     </tr>

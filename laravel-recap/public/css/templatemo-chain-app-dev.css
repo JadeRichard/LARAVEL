@@ -1052,34 +1052,20 @@ Services Style
   width: 50px;
 }
 
-.first-service:hover .icon {
-  background-image: url(../images/service-icon-hover-01.png);
-}
-
 .second-service .icon {
   width: 50px;
 }
 
-.second-service:hover .icon {
-  background-image: url(../images/service-icon-hover-02.png);
-}
 
 
 .third-service .icon {
   width: 50px;
 }
 
-.third-service:hover .icon {
-  background-image: url(../images/service-icon-hover-03.png);
-}
-
 .fourth-service .icon {
   width: 50px;
 }
 
-.fourth-service:hover .icon {
-  background-image: url(../images/service-icon-hover-04.png);
-}
 
 .service-item:hover {
   background-image: url(../images/service-bg.jpg);

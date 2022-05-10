@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -21,17 +22,17 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $user = new User();
+        $users = new User();
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
         ]);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->updated_at = now();
-        $user->save();
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->password = Hash::make($request->password);
+        $users->updated_at = now();
+        $users->save();
         return redirect()->route('users.index')->with('message', 'Element user created');
     
     }
@@ -44,31 +45,24 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
+        $users = User::find($id);
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
         ]);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->updated_at = now();
-        $user->save();
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->password = Hash::make($request->password);
+        $users->updated_at = now();
+        $users->save();
         return redirect()->route('users.index')->with('message', 'Element user updated');
 
     }
 
-    public function destroy($id)
-    {
-        $user = User::find($id);
-        $user->delete();
-        return redirect()->back()->with('message', 'Element user deleted');
-    }
-
     public function show($id)
     {
-        $user = User::find($id);
-        return view('/back/users/show', compact('user'));
+        $users = User::find($id);
+        return view('/back/users/show', compact('users'));
     }
 }

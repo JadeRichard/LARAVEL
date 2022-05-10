@@ -1,13 +1,12 @@
 @extends('back.layouts.app')
 @section('content')
 @include('back.partials.navbar')
-    <div class='container'>
-        <h1>Banners</h1>
+    <div class='container'  style="margin-left: 20px;" >
         @if ($errors->any())
-            <div class='alert alert-danger'>
+            <div class='alert alert-danger' style="width: 100vw;">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li style="text-align: center;">{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>

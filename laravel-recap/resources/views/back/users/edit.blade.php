@@ -33,7 +33,7 @@
                             <td style="text-align: center;"> <input type="text" name="email" value="{{ $users->email }}"></td>
                             <td style="text-align: center;"> <input type="text" name="password" value="{{ $users->password }}"></td>
                             
-                            <td style="text-align: center;"><button class="btn btncus2" type='submit'>Update</button> {{-- update_blade_anchor --}}</td>
+                            <td style="text-align: center;"><button class="btn btncus2" type='submit'  style="background-color: #429db6; color: white;">Update</button> {{-- update_blade_anchor --}}</td>
                         </form>
                 </tr>
             </tbody>

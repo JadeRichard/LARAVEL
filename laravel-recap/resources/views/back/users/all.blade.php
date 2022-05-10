@@ -19,6 +19,8 @@
                 </ul>
             </div>
         @endif
+        
+        <a href="{{ route('users.create') }}" class="btn btncus mb-5" style="background-color: #429db6; color: white;">Create</a>
 
         <table class='table'>
             <thead>
@@ -27,6 +29,7 @@
                     <th scope='col'style="text-align: center;">Name</th>
                     <th scope='col'style="text-align: center;">Email</th>
                     <th scope='col'style="text-align: center;">Password</th>
+                    <th scope='col'style="text-align: center;">Action</th>
                 </tr>
             </thead>
             <tbody>

@@ -26,6 +26,7 @@
                     <th scope='col'style="text-align: center;">#</th>
                     <th scope='col'style="text-align: center;">Image</th>
                     <th scope='col'style="text-align: center;">Image_Title</th>
+                    <th scope='col'style="text-align: center;">Action</th>
                 </tr>
             </thead>
             <tbody>

@@ -32,7 +32,7 @@
                             <td style="text-align: center;"> <input type="text" name="email" value="{{ old('email') }}"></td>
                             <td style="text-align: center;"> <input type="text" name="password" value="{{ old('password') }}"></td>
 
-                            <td style="text-align: center;"><button class="btn btncus2" type='submit'>Create</button> </td>
+                            <td style="text-align: center;"><button class="btn btncus2" type='submit'   style="background-color: #429db6; color: white;">Create</button> </td>
                             
                         </form>
                     </td>

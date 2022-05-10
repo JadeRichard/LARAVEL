@@ -43,13 +43,15 @@
                         <td style="text-align: center;">{{ $item->description }}</td>
                         <td style="text-align: center;">{{ $item->button_1_text }}</td>
                         <td style="text-align: center;">{{ $item->button_1_link }}</td>
-                        <td style="text-align: center;">{{ $item->button_1_icon }}</td>
+                        <td style="text-align: center;">{!! $item->button_1_icon !!}</td>
                         <td style="text-align: center;">{{ $item->button_2_text }}</td>
                         <td style="text-align: center;">{{ $item->button_2_link }}</td>
-                        <td style="text-align: center;">{{ $item->button_2_icon }}</td>
+                        <td style="text-align: center;">{!! $item->button_2_icon !!}</td>
                         <td style="text-align: center;"> 
                             <div class='d-flex justify-content-center'>
+                                @can('update', $item)
                                 <a class='btn btncus3 mx-2' style="background-color: #429db6; color: white;" href='{{ route('banners.edit', $item->id) }}' role='button'>Edit</a>
+                                @endcan
                                 <a class='btn btncus3 mx-2' style="background-color: #429db6; color: white;" href='{{ route('banners.show', $item->id) }}' role='button'>Read</a>
                             </div>
                         </td>
